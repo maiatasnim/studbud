@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/maiatasnim/studbud/issues"
   },
-  "homepage": "https://github.com/maiatasnim/studbud#readme"
+  "homepage": "https://github.com/maiatasnim/studbud#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
