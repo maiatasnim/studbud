@@ -26,6 +26,7 @@ var taskList = [];
 
 function addTask(taskDescription, createdDate, dueDate, priorityRating, estimatedTime, completionStatus) {
   let task = {
+    id: Date.now(),
     taskDescription,
     createdDate,
     dueDate,
@@ -44,7 +45,11 @@ function addTask(taskDescription, createdDate, dueDate, priorityRating, estimate
 
 // Function to display the item on the page
 function renderTask(task) {
+
+  updateEmpty();
+
   let item = document.createElement("li");
+  item.setAttribute('data-id', task.id);
   // item.innerHTML = "<p>" + task.taskDescription + "</p><br>" + "<p>" + task.dueDate + "</p><br>";
 
   // Add task details to list item
@@ -84,10 +89,33 @@ function renderTask(task) {
 
   // Listen for when the 
   delButton.addEventListener("click", function(event){
+    event.preventDefault();
+    let id = event.target.parentElement.getAttribute('data-id');
+    let index = tasklistArray.findIndex(task => task.id === Number(id));
+    removeItemFromArray(tasklistArray, index);// Removes item from array/tasklist
+    updateEmpty();
+  
     item.remove(); // Remove the task item from the page when button clicked
     // Because we used 'let' to define the item, this will always delete the right element
   })
   
   // Clear the value of the input once the task has been added to the page
   form.reset();
+}
+
+function removeItemFromArray (arr, index) {
+  if (index > -1){
+    arr.splice(index, 1)
+  }
+  return arr;
+
+}
+
+function updateEmpty() {
+  if (tasklistArray.length > 0){
+    document.getElementById('emptyList').style.display = 'none';
+  }
+  else {
+  document.getElementById('emptyList').style.display = 'block';
+  }
 }

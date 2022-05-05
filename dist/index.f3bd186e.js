@@ -38,13 +38,33 @@ function addTask(taskDescription, createdDate, dueDate, priorityRating, estimate
 // Function to display the item on the page
 function renderTask(task) {
     let item = document.createElement("li");
-    item.innerHTML = "<p>" + task.taskDescription + "</p>";
+    // item.innerHTML = "<p>" + task.taskDescription + "</p><br>" + "<p>" + task.dueDate + "</p><br>";
+    // Add task details to list item
+    let taskTitle = document.createElement("p");
+    taskTitle.innerHTML = "<p>" + task.taskTitle + "</p><br>";
+    let dueDate = document.createElement("p");
+    dueDate.innerHTML = "<p>" + task.dueDate + "</p><br>";
+    let taskDescription = document.createElement("p");
+    taskDescription.innerHTML = "<p>" + task.taskDescription + "</p><br>";
+    let priorityRating = document.createElement("p");
+    priorityRating.innerHTML = "<p>" + task.priorityRating + "</p><br>";
+    let estimatedTime = document.createElement("p");
+    estimatedTime.innerHTML = "<p>" + task.estimatedTime + "</p><br>";
+    let completionStatus = document.createElement("p");
+    completionStatus.innerHTML = "<p>" + task.completionStatus + "</p><br>";
     tasklist.appendChild(item);
+    item.appendChild(taskTitle);
+    item.appendChild(dueDate);
+    item.appendChild(taskDescription);
+    item.appendChild(priorityRating);
+    item.appendChild(estimatedTime);
+    item.appendChild(completionStatus);
     // Setup delete button DOM elements
     let delButton = document.createElement("button");
     let delButtonText = document.createTextNode("Delete");
     delButton.appendChild(delButtonText);
     item.appendChild(delButton); // Adds a delete button to every task
+    // Setup edit button DOM elements
     // Listen for when the 
     delButton.addEventListener("click", function(event) {
         item.remove(); // Remove the task item from the page when button clicked
