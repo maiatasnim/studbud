@@ -102,7 +102,7 @@ resetButton.addEventListener("click", function reset(){
     document.getElementById("timer").innerHTML = "00:00:00";
     document.getElementById("startStop").innerHTML = "start";
 
-})
+});
 
 lapButton.addEventListener("click", function lap() {
     // lapList.innerHTML += "<li>" + timer.innerHTML + "</li>";
@@ -125,6 +125,6 @@ function leftLaps(value) {
     return value < 10 ? ('0' + value) : value;
 }
 
-clearLaps.addEventListener("click", function clear() {
+resetButton.addEventListener("click", function clear() {
     lapList.innerHTML = '';
 })

@@ -699,7 +699,7 @@ lapButton.addEventListener("click", function lap() {
 function leftLaps(value) {
     return value < 10 ? '0' + value : value;
 }
-clearLaps.addEventListener("click", function clear() {
+resetButton.addEventListener("click", function clear() {
     lapList.innerHTML = '';
 });
 
