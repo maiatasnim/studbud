@@ -1,0 +1,60 @@
+.container {  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr auto;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "header header"
+      "stopwatch lap-list"
+      "stopwatch lap-list"
+      "footer footer";
+  }
+  
+  .header { grid-area: header; }
+  
+  .footer { grid-area: footer; }
+  
+  .stopwatch { grid-area: stopwatch; }
+  
+  .lap-list { grid-area: lap-list; }
+  
+  .stopwatch {
+    display: grid;
+    justify-items: center;
+    grid-row-gap: 23px;
+    width: 100%;
+    padding-top: 25px;
+  }
+  
+  .watch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    height: 270px;
+    width: 270px;
+  
+  }
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+  
+    width: 187px;
+  }
+   
+  #playButton {
+    display: block;
+  }
+  
+  #pauseButton {
+    display: none;
+  }
+
+  #timeLabels {
+    display: block;
+  }
+  
+  .lap-list {
+    display: block;
+  }

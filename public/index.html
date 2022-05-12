@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>studbud</title>
 
@@ -16,6 +16,7 @@
     <div class="header">
 
       <h1>studbud.</h1>
+      <a href="stopwatch.html">stopwatch</a>
       <h3 id="quote">a journey of a thousand miles begins with a single step</h3>
       <button type="button" id="sessionstart">start session</button>
 
@@ -24,40 +25,43 @@
     <div class="tasklist">
       
       <form id="taskform">
-        <label for="task">Task:</label>
-        <input type="text" name="task" id="taskInput">
-  
-        <br>
-      <!-- Date input -->
-        <label for="dueDate">Due Date: </label>
-        <input type="date" name="dueDate" id="dueDateInput">
-        <br>
-      <!-- Time input -->
-      <label for="completionTime">Completion Time: </label>
-        <input type="time" name="completionTime" id="completionTimeInput">
-  
-        <br>
-  
-      <label for="estimatedTime">Estimated completion time (in mins):</label>
-      <input type="number" name="estimatedTime" id="estimatedTimeInput">
-      <!-- Priority -->
-      <br>
-  
-      <label for="priority">Task Priority:</label>
-      <select name="prority" id="priorityInput">
-        <option value="">Select one</option>
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
-        <option value="High">High</option>
-      </select>
-  
-      <br>
-  
-        <button type="submit">Submit</button>
-      </form>
+
+        <div id="task-grid">
+
+          <form id="taskform">
+              <label for="task">Task:</label>
+              <input type="text" name="task" id="taskInput" required>
+
+              <!-- Date input -->
+              <label for="dueDate">Due Date: </label>
+              <input type="date" name="dueDate" id="dueDateInput">
+
+              <!-- Time input -->
+              <label for="completionTime">Completion Time: </label>
+              <input type="time" name="completionTime" id="completionTimeInput">
+
+              <label for="estimatedTime">Estimated completion time (in mins):</label>
+              <input type="number" name="estimatedTime" id="estimatedTimeInput">
+              
+              <!-- Priority -->
+              <label for="priority">Task Priority:</label>
+              <select name="prority" id="priorityInput">
+                  <option value="">Select one</option>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+              </select>
+
+              <br>
+
+              <button type="submit">Submit</button>
+          </form>
+        
+      </div>
+
       <div id="tasklist">
 
-        <p id="empty-list">You have not added any tasks!</p>
+        <p id="emptyList">You have not added any tasks yet.</p>
         <ul></ul>
 
       </div>
@@ -71,8 +75,8 @@
     </div>
   </div>  
   
+  
 </body>
 
-<script src="script.js"></script>
-
+<script type="module" src="script.js"></script>
 </html>

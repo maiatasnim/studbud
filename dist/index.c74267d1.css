@@ -100,4 +100,65 @@ input, button, textarea, select {
   display: block;
 }
 
+.container {
+  grid-template: "header header"
+                 "stopwatch lap-list" 1fr
+                 "stopwatch lap-list" 1fr
+                 "footer footer"
+                 / 1fr 1fr;
+  grid-auto-flow: row;
+  gap: 10px;
+  display: grid;
+}
+
+.header {
+  grid-area: header;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.stopwatch {
+  grid-area: stopwatch;
+}
+
+.lap-list {
+  grid-area: lap-list;
+}
+
+.stopwatch {
+  grid-row-gap: 23px;
+  width: 100%;
+  justify-items: center;
+  padding-top: 25px;
+  display: grid;
+}
+
+.watch {
+  height: 270px;
+  width: 270px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.controls {
+  width: 187px;
+  justify-content: space-between;
+  display: flex;
+}
+
+#playButton {
+  display: block;
+}
+
+#pauseButton {
+  display: none;
+}
+
+#timeLabels, .lap-list {
+  display: block;
+}
+
 /*# sourceMappingURL=index.c74267d1.css.map */
