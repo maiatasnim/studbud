@@ -1,0 +1,28 @@
+// .container {  display: grid;
+//     grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+//     grid-template-rows: auto 1fr auto;
+//     gap: 10px 10px;
+//     grid-auto-flow: row;
+//     grid-template-areas:
+//       "header header header header header"
+//       "tasklist to-start in-progress completed overdue"
+//       "footer footer footer footer footer";
+//   }
+  
+//   .header { grid-area: header; }
+  
+//   .footer { grid-area: footer; }
+  
+//   .to-start {
+//       grid-area: to-start; 
+//       align-items: center;
+//     }
+  
+//   .in-progress { grid-area: in-progress; }
+  
+//   .completed { grid-area: completed; }
+  
+//   .overdue { grid-area: overdue; }
+  
+//   .tasklist { grid-area: tasklist; }
+  

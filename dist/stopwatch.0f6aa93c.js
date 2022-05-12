@@ -59,7 +59,7 @@ startStop.addEventListener("click", function startStop() {
         watchStatus = "paused";
     }
 });
-//Function to reset the stopwatch
+// Function to reset stopwatch
 resetButton.addEventListener("click", function reset() {
     window.clearInterval(interval);
     seconds = 0;
@@ -68,6 +68,7 @@ resetButton.addEventListener("click", function reset() {
     document.getElementById("timer").innerHTML = "00:00:00";
     document.getElementById("startStop").innerHTML = "start";
 });
+// Function to record a lap
 lapButton.addEventListener("click", function lap() {
     //     lapList.innerHTML += "<li>" + timer.innerHTML + "</li>";
     // });
@@ -81,10 +82,12 @@ lapButton.addEventListener("click", function lap() {
     };
     lapList.innerHTML += "<li>" + leftLaps(lapHours) + ":" + leftLaps(lapMinutes) + ":" + leftLaps(lapSeconds) + "</li>";
 });
+// Checks to see if reset button has been clicked (?)
 function leftLaps(value) {
     if (value >= 0) return value < 10 ? '0' + value : value;
     else if (value <= 0) return value < 10 ? '0' + -value : value;
 }
+// Function to clear lap records
 clearLaps.addEventListener("click", function clear() {
     lapList.innerHTML = '';
 });

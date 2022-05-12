@@ -529,8 +529,9 @@ function hmrAcceptRun(bundle, id) {
 //Import just as JS
 var _tasklist = require("./components/tasklist");
 var _stopwatch = require("./components/stopwatch");
+var _kanban = require("./components/kanban");
 
-},{"./components/tasklist":"5i9SJ","./components/stopwatch":"3fKV6"}],"5i9SJ":[function(require,module,exports) {
+},{"./components/tasklist":"5i9SJ","./components/stopwatch":"3fKV6","./components/kanban":"5fGXv"}],"5i9SJ":[function(require,module,exports) {
 // Basic form DOM elements
 const form = document.getElementById("taskform");
 const button = document.querySelector("#taskform > button");
@@ -677,7 +678,7 @@ startStop.addEventListener("click", function startStop() {
         watchStatus = "paused";
     }
 });
-//Function to reset the stopwatch
+// Function to reset stopwatch
 resetButton.addEventListener("click", function reset() {
     window.clearInterval(interval);
     seconds = 0;
@@ -686,6 +687,7 @@ resetButton.addEventListener("click", function reset() {
     document.getElementById("timer").innerHTML = "00:00:00";
     document.getElementById("startStop").innerHTML = "start";
 });
+// Function to record a lap
 lapButton.addEventListener("click", function lap() {
     //     lapList.innerHTML += "<li>" + timer.innerHTML + "</li>";
     // });
@@ -699,13 +701,17 @@ lapButton.addEventListener("click", function lap() {
     };
     lapList.innerHTML += "<li>" + leftLaps(lapHours) + ":" + leftLaps(lapMinutes) + ":" + leftLaps(lapSeconds) + "</li>";
 });
+// Checks to see if reset button has been clicked (?)
 function leftLaps(value) {
     if (value >= 0) return value < 10 ? '0' + value : value;
     else if (value <= 0) return value < 10 ? '0' + -value : value;
 }
+// Function to clear lap records
 clearLaps.addEventListener("click", function clear() {
     lapList.innerHTML = '';
 });
+
+},{}],"5fGXv":[function(require,module,exports) {
 
 },{}]},["2xDT7","2OD7o"], "2OD7o", "parcelRequire60da")
 
