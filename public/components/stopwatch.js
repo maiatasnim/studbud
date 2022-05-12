@@ -21,7 +21,7 @@ let watchStatus = "paused";
 
 // Selector for the lap outputs
 var lap = document.getElementById('lapButton');
-var lapList = document.getElementById('lapsList')
+var lapList = document.getElementById('lapsList');
 
 // Records last lap
 var lastLap = { seconds: 0, minutes: 0, hours: 0 };
@@ -98,14 +98,17 @@ startStop.addEventListener("click", function startStop(){
 resetButton.addEventListener("click", function reset(){
 
     window.clearInterval(interval);
-    seconds, minutes, hours = 0;
+    seconds = 0;
+    minutes = 0; 
+    hours = 0;
     document.getElementById("timer").innerHTML = "00:00:00";
     document.getElementById("startStop").innerHTML = "start";
 
 });
 
 lapButton.addEventListener("click", function lap() {
-    // lapList.innerHTML += "<li>" + timer.innerHTML + "</li>";
+//     lapList.innerHTML += "<li>" + timer.innerHTML + "</li>";
+// });
 
     var lapSeconds = seconds - lastLap.seconds;
     var lapMinutes = minutes - lastLap.minutes;
@@ -115,16 +118,21 @@ lapButton.addEventListener("click", function lap() {
     hours: hours,
     minutes: minutes,
     seconds: seconds
-  };
+    };
 
     lapList.innerHTML += "<li>" + leftLaps(lapHours) + ":" + leftLaps(lapMinutes) + ":" + leftLaps(lapSeconds) + "</li>";
   
 })
 
 function leftLaps(value) {
-    return value < 10 ? ('0' + value) : value;
+    if (value >= 0) {
+        return value < 10 ? ('0' + value) : value;
+    }
+    else if (value <= 0) {
+        return value < 10 ? ('0' + -value) : value;
+    }
 }
 
-resetButton.addEventListener("click", function clear() {
+clearLaps.addEventListener("click", function clear() {
     lapList.innerHTML = '';
 })

@@ -62,12 +62,15 @@ startStop.addEventListener("click", function startStop() {
 //Function to reset the stopwatch
 resetButton.addEventListener("click", function reset() {
     window.clearInterval(interval);
+    seconds = 0;
+    minutes = 0;
     hours = 0;
     document.getElementById("timer").innerHTML = "00:00:00";
     document.getElementById("startStop").innerHTML = "start";
 });
 lapButton.addEventListener("click", function lap() {
-    // lapList.innerHTML += "<li>" + timer.innerHTML + "</li>";
+    //     lapList.innerHTML += "<li>" + timer.innerHTML + "</li>";
+    // });
     var lapSeconds = seconds - lastLap.seconds;
     var lapMinutes = minutes - lastLap.minutes;
     var lapHours = hours - lastLap.hours;
@@ -79,9 +82,10 @@ lapButton.addEventListener("click", function lap() {
     lapList.innerHTML += "<li>" + leftLaps(lapHours) + ":" + leftLaps(lapMinutes) + ":" + leftLaps(lapSeconds) + "</li>";
 });
 function leftLaps(value) {
-    return value < 10 ? '0' + value : value;
+    if (value >= 0) return value < 10 ? '0' + value : value;
+    else if (value <= 0) return value < 10 ? '0' + -value : value;
 }
-resetButton.addEventListener("click", function clear() {
+clearLaps.addEventListener("click", function clear() {
     lapList.innerHTML = '';
 });
 
