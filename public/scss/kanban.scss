@@ -1,28 +1,249 @@
 // .container {  display: grid;
-//     grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
-//     grid-template-rows: auto 1fr auto;
-//     gap: 10px 10px;
-//     grid-auto-flow: row;
-//     grid-template-areas:
-//       "header header header header header"
-//       "tasklist to-start in-progress completed overdue"
-//       "footer footer footer footer footer";
-//   }
+  //     grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
+  //     grid-template-rows: auto 1fr auto;
+  //     gap: 10px 10px;
+  //     grid-auto-flow: row;
+  //     grid-template-areas:
+  //       "header header header header header"
+  //       "tasklist to-start in-progress completed overdue"
+  //       "footer footer footer footer footer";
+  //   }
   
-//   .header { grid-area: header; }
+  //   .header { grid-area: header; }
   
-//   .footer { grid-area: footer; }
+  //   .footer { grid-area: footer; }
   
-//   .to-start {
-//       grid-area: to-start; 
-//       align-items: center;
-//     }
+  //   .to-start {
+    //       grid-area: to-start; 
+    //       align-items: center;
+    //     }
+    
+    //   .in-progress { grid-area: in-progress; }
+    
+    //   .completed { grid-area: completed; }
+    
+    //   .overdue { grid-area: overdue; }
+    
+    //   .tasklist { grid-area: tasklist; }
+    
+    .kanban_board {
+      width: 1200px;
+      height: 90vh;
+      margin: 2vw;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      
+      // .kanban-headers {
+        //   flex-direction: column;
+        //   box-sizing: border-box;
+        //   flex-grow: 1;
+        //   overflow: hidden;
+        //   list-style: none;
+        
+        //   width: 1000px;
+        //   height: fit-content;
+        //   padding: 0.8em 1.2em;
+        
+        //   position: absolute;
+        //   z-index: 1;
+        //   justify-content: center;
+        //   text-align: center;
+        
+        .kanban_column {
+          flex-direction: column;
+          box-sizing: border-box;
+          flex-grow: 1;
+          overflow: hidden;
+          list-style: none;
+          
+          width: 20%;
+          height: 100%;
+          margin-top: 4.8%;
+          padding: 0.8em 1.2em;
+          
+          position: relative;
+          justify-content: space-evenly;
+          text-align: center;
+          
+          background-color: red;
+          
+          h2 {
+            display: inline-block;
+            text-align: center;
+          }
+          
+        }
+        
+        // .kanban-swimlane {
+          //   flex-direction: row;
+          //   box-sizing: border-box;
+          //   flex-grow: 1;
+          //   overflow: hidden;
+          //   list-style: none;
+          
+          //   position: absolute;
+          //   z-index: 2;
+          //   justify-content: center;
+          //   text-align: center;
+          
+          //   width: 1000px;
+          //   height: fit-content;
+          //   margin-top: 4.8%;
+          //   padding: 2px;
+          
+          //   background-color: blue;
+          // }
+          
+          .kanban_card {
+            position: absolute;
+            
+            padding: 0.8em 1.2em;
+            width: 200px;
+            margin: 10px;
+            height: fit-content;
+            
+            justify-content: space-between;
+            cursor: grab;
+            
+            background-color: yellow;
+          }
+
+          .new_task {
+            width: 200px;
+            margin-top: 15px;
+            margin-left: 10px;
+            height: 40px;
+            border: none;
+            padding: none;
+            justify-content: center;
+            
+            background-color: blue;
+          }
+        }
+        
+        // task form styles
+        
+        .modal {
+          width: 500px;
+          align-items: center;
+          position: absolute;
+          margin-top: -50vh;
+          margin-left: 30vw;
+          opacity: 0;
+          transition: opacity 0.6s;
+          border-radius: 10px;
+          z-index: 2;
+          background-color: #fff;
+          
+          .form_header {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            border-bottom: 1px solid #ccc;
+            padding: 0.5rem;
+            background-color: rgba(0, 0, 0, 0.05);
+
+            h3 {
+              display: inline;
+              margin-right: 320px;
+            }
+
+            .close_modal{
+              background: none;
+              display: inline;
+              border: none;
+              font-size: 1.5rem;
+            }
+
+            .close_modal:hover {
+              font-weight: bold;
+            }
+          }
+          
+          .form_questions {
+            display: flex;
+            align-items: center;
+            height: fit-content; 
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px 30px 0px 30px;
+
+            .quest_column {
+              display: block;
+              font-size: medium;
+              width: 50%;
+              height: 100%;
+              
+              padding: 0.8em 1.2em;
+              
+              position: relative;
+              justify-content: space-evenly;
+              text-align: left;
+
+              label {
+                margin-top: 15px;
+              
+              }
+
+              input, select {
+                margin-bottom: 10px;
+                margin-right: 80px;
+              }
+
+            }
+
+
+            
+
+          }
+
+          #task_submit {
+            padding: 0.5em 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            outline: none;
+            margin: 2% 42% 6%;
+          }
+          
+          #task_submit:active {
+            transform: scale(0.9);
+          }
+        }
+
+        .modal.active {
+          position: absolute;
+          margin-top: 20vh;
+          opacity: 1;
+        }
+        
+        
+        
+        #overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.3);
   
-//   .in-progress { grid-area: in-progress; }
-  
-//   .completed { grid-area: completed; }
-  
-//   .overdue { grid-area: overdue; }
-  
-//   .tasklist { grid-area: tasklist; }
-  
+        }
+
+        #overlay.active {
+          display: block;
+        }
+        
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

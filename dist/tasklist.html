@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>studbud</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="web app for studying">
+    
+    <link href="/index.c74267d1.css" rel="stylesheet" type="text/css">
+    <!-- <link rel="icon" href="img/favicon.png"/> -->
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="header">
+            
+            <h1>studbud.</h1>
+            <a href="/stopwatch.html">stopwatch</a>
+            <a href="/kanban.html">kanban</a>
+            <h3 id="quote">a journey of a thousand miles begins with a single step</h3>
+            <button type="button" id="sessionstart">start session</button>
+            
+        </div>
+        
+        <div class="tasklist">
+            
+            <form id="taskform">
+                <div id="task-grid">
+                    
+                    <form id="taskform">
+                        
+                        <!-- Task name -->
+                        <label for="task">what is it?</label>
+                        <input type="text" name="taskName" class="task_input" id="taskNameInput" required="">
+                        
+                        <!-- Due date -->
+                        <label for="dueDate">when is it due?</label>
+                        <input type="date" name="dueDate" class="task_input" id="dueDateInput" required="">
+                        
+                        <!-- Est completion time -->
+                        <label for="completionTime">how long will it take?</label>
+                        <input type="time" name="completionTime" class="task_input" id="completionTimeInput" required="">
+                        
+                        <!-- Priority -->
+                        <label for="priority">how urgent is it?</label>
+                        <select name="priority" class="task_input" id="priorityInput" required="">
+                            <option value="">Select one</option>
+                            <option value="low">low</option>
+                            <option value="medium">medium</option>
+                            <option value="high">high</option>
+                        </select>
+
+                        <!-- Category -->
+                        <label for="category">what is it for?</label>
+                        <select name="category" class="task_input" id="categoryInput" required="">
+                            <option value="">Select one</option>
+                            <option value="low">low</option>
+                            <option value="medium">medium</option>
+                            <option value="high">high</option>
+                        </select>
+
+                        <!-- Task type -->
+                        <label for="taskType">what kind of task is it?</label>
+                        <select name="taskType" class="task_input" id="taskTypeInput" required="">
+                            <option value="">Select one</option>
+                            <option value="assignment">assignment</option>
+                            <option value="homework">homework</option>
+                            <option value="test">test</option>
+                        </select>
+
+                        <!-- Task description -->
+                        <label for="taskDesc">any details?</label>
+                        <input type="text" name="taskDesc" class="task_input" id="taskDescInput">
+
+                        <!-- Mood -->
+                        <label for="mood">how are you feeling?</label>
+                        <select name="mood" class="task_input" id="moodInput">
+                            <option value="">Select one</option>
+                            <option value="confident">confident</option>
+                            <option value="anxious">anxious</option>
+                            <option value="fine">fine</option>
+                        </select>
+
+                        <!-- File upload -->
+                        <label for="fileUpload">any files to add?</label>
+                        <input type="file" name="fileUpload" class="task_input" id="fileUploadInput">
+                        
+                        <br>
+                        
+                        <button type="submit" id="submitButton">add task</button>
+                    </form>
+                    
+                </div>
+                
+                <div id="tasklist">
+                    
+                    <p id="emptyList">no tasks yet!</p>
+                    <ul></ul>
+                    
+                </div>
+                
+            </form></div>
+            <div class="kanban">
+                
+            </div>
+            <div class="footer">
+                
+            </div>
+        </div>  
+        
+        
+    </body>
+    
+    <script src="/stopwatch.3b06b0f7.js" defer=""></script>
+    </html>

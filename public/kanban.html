@@ -3,11 +3,11 @@
 <head>
   <title>studbud</title>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="web app for studying" />
+  <meta charset="utf_8">
+  <meta name="viewport" content="width=device_width,initial_scale=1"/>
+  <meta name="description" content="web app for studying"/>
 
-  <link href="scss/main.scss" rel="stylesheet" type="text/css" />
+  <link href="scss/main.scss" rel="stylesheet" type="text/css"/>
   <!-- <link rel="icon" href="img/favicon.png"> -->
 </head>
 
@@ -18,22 +18,108 @@
             <h3 id="quote">a journey of a thousand miles begins with a single step</h3>
             <button type="button" id="sessionstart">start session</button>
         </div>
+        <!-- task form -->
+        <div class="modal" id="task_form">
+            <div class="form_header">
+                <div class="form_title">
+                    <h3>new task!</h3>
+                    <button class="btn close_modal">&times;</button>
+                </div>
+            </div>
+            <div class="form_questions">
+                <div class="quest_column">
+                <!-- Task name -->
+                <label for="task">what is it?</label>
+                <input type="text" name="taskName" class="task_input" id="taskNameInput" required>
+
+                <!-- Category -->
+                <!-- <label for="category">what is it for?</label>
+                <select name="category" id="categoryInput" required>
+                    <option value="">Select one</option>
+                    <option value="low">low</option>
+                    <option value="medium">medium</option>
+                    <option value="high">high</option>
+                </select> -->
+
+                <!-- Task type -->
+                <label for="taskType">what kind of task is it?</label>
+                <select name="taskType" class="task_input" id="taskTypeInput" required>
+                    <option value="">Select one</option>
+                    <option value="assignment">assignment</option>
+                    <option value="homework">homework</option>
+                    <option value="test">test</option>
+                </select>
+
+                <!-- Priority -->
+                <label for="priority">how urgent is it?</label>
+                <select name="priority" class="task_input" id="priorityInput" required>
+                    <option value="">Select one</option>
+                    <option value="low">low</option>
+                    <option value="medium">medium</option>
+                    <option value="high">high</option>
+                </select>
+
+                <!-- Task description -->
+                <label for="taskDesc">any details?</label>
+                <input type="text" name="taskDesc" class="task_input" id="taskDescInput">
+        
+                </div>
+                
+                <div class="quest_column">
+                <!-- Due date -->
+                <label for="dueDate">when is it due?</label>
+                <input type="date" name="dueDate" class="task_input" id="dueDateInput" required>
+
+                 <!-- Est completion time -->
+                 <label for="completionTime">how long will it take?</label>
+                 <input type="time" name="completionTime" class="task_input" id="completionTimeInput" required>
+
+                <!-- Mood -->
+                <label for="mood">how are you feeling?</label>
+                <select name="mood" class="task_input" id="moodInput">
+                    <option value="">Select one</option>
+                    <option value="confident">confident</option>
+                    <option value="anxious">anxious</option>
+                    <option value="fine">fine</option>
+                </select>
+
+                <!-- File upload -->
+                <label for="fileUpload">any files to add?</label>
+                <input type="file" name="fileUpload" class="task_input" id="fileUploadInput">
+
+                </div>
+            </div>
+            <input type="submit" value="add task" id="task_submit"/>
+        </div>
+
+        <!-- kanban board -->
+        <div class="kanban_board">
+            <div class="kanban_column" id="tasklist">
+                <h2>tasklist</h2>
+                <button class="btn new_task" data-target-modal="#task_form">new task</button>
+                <!-- <div class="kanban_card" draggable="true">
+                    task name
+                    <span class="delete">&times;</span>
+                </div> -->
+            </div>
+            <div class="kanban_column" id="to_start">
+                <h2>to start</h2>
+            </div>
+            <div class="kanban_column" id="in_progress">
+                <h2>in progress</h2>
+            </div>
+            <div class="kanban_column" id="completed">
+                <h2>completed</h2>
+            </div>
+            <div class="kanban_column" id="overdue">
+                <h2>overdue</h2>                
+            </div>
+            <!-- <div class="kanban_swimlane" id="subject">
+                <h5>subject</h5>
+            </div> -->
+        </div>
         <div class="footer"></div>
-        <div class="kanban-column" id="to-start">
-            <h2>to start</h2>
-        </div>
-        <div class="kanban-column" id="in-progress">
-            <h2>in progress</h2>
-        </div>
-        <div class="kanban-column" id="completed">
-            <h2>completed</h2>
-        </div>
-        <div class="kanban-column" id="overdue">
-            <h2>overdue</h2>
-        </div>
-        <div class="tasklist">
-            <h4>tasklist</h4>
-        </div>
+        <div id="overlay"></div>
         
       </div>
 

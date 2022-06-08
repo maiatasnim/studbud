@@ -23,10 +23,10 @@ let watchStatus = "paused";
 var lap = document.getElementById('lapButton');
 var lapList = document.getElementById('lapsList');
 
-// Records last lap
+// Resets last lap
 var lastLap = { seconds: 0, minutes: 0, hours: 0 };
 
-// Stopwatch function (logic to determine when to increment next value, etc.)
+// Stopwatch function
 function playTimer() {
 
     seconds++;

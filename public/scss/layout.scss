@@ -77,22 +77,22 @@ select {
   }
 }
 
-.grid-container {  display: grid;
-  grid-template-columns: 400px 1fr 1fr;
-  grid-template-rows: auto 1fr 1fr auto;
-  gap: 10px 10px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "header header header"
-    "tasklist kanban kanban"
-    "tasklist kanban kanban"
-    "footer footer footer";
-}
+// .grid-container {  display: grid;
+//   grid-template-columns: 400px 1fr 1fr;
+//   grid-template-rows: auto 1fr 1fr auto;
+//   gap: 10px 10px;
+//   grid-auto-flow: row;
+//   grid-template-areas:
+//     "header header header"
+//     "tasklist kanban kanban"
+//     "tasklist kanban kanban"
+//     "footer footer footer";
+// }
 
-.header { grid-area: header; }
+// .header { grid-area: header; }
 
-.tasklist { grid-area: tasklist; }
+// .tasklist { grid-area: tasklist; }
 
-.kanban { grid-area: kanban; }
+// .kanban { grid-area: kanban; }
 
-.footer { grid-area: footer; }
+// .footer { grid-area: footer; }

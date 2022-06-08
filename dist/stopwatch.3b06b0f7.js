@@ -529,8 +529,9 @@ function hmrAcceptRun(bundle, id) {
 //Import just as JS
 var _tasklist = require("./components/tasklist");
 var _stopwatch = require("./components/stopwatch");
+var _kanban = require("./components/kanban");
 
-},{"./components/tasklist":"5i9SJ","./components/stopwatch":"3fKV6"}],"5i9SJ":[function(require,module,exports) {
+},{"./components/tasklist":"5i9SJ","./components/stopwatch":"3fKV6","./components/kanban":"5fGXv"}],"5i9SJ":[function(require,module,exports) {
 // Basic form DOM elements
 const form = document.getElementById("taskform");
 const button = document.querySelector("#taskform > button");
@@ -616,97 +617,35 @@ function updateEmpty() {
 }
 
 },{}],"3fKV6":[function(require,module,exports) {
-// // Define variables to hold time values
-// const hours = 0;
-// const minutes = 0;
-// const seconds = 0; 
-// // Define variables to hold "display" values
-// const displaySeconds = 0;
-// const displayMinutes = 0;
-// const displayHours = 0;
-// // DOM setup for buttons
-// // const start = document.getElementById('startButton');
-// // const stop = document.getElementById('stopButton');
-// // const reset = document.getElementById('resetButton');
-// // const lap = document.getElementById('lapButton');
-// // Define variable to hold setInterval() function
-// var interval = null;
-// // Define variable to hold stopwatch watchStatus
-// var stopwatchwatchStatus = "paused";
-// // Creating logic for stopwatch to function
-// function stopwatch(){
-//     seconds++;
-//     // Determines when to increment next value
-//     if(seconds / 60 === 1){
-//         seconds = 0;
-//         minutes++;
-//         if(minutes / 60 === 1){
-//             minutes = 0;
-//             hours++;
-//         }
-//     }
-//     //If seconds/minutes/hours are only one digit, add a leading 0 to the value
-//     if(seconds < 10){
-//         displaySeconds = "0" + seconds.toString();
-//     }
-//     else{
-//         displaySeconds = seconds;
-//     }
-//     if(minutes < 10){
-//         displayMinutes = "0" + minutes.toString();
-//     }
-//     else{
-//         displayMinutes = minutes;
-//     }
-//     if(hours < 10){
-//         displayHours = "0" + hours.toString();w
-//     }
-//     else{
-//         displayHours = hours;
-//     }
-//     //Display updated time values to user
-//     document.getElementById("timer").innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
-// }
-// function playTimer(){
-//     if (stopwatchwatchStatus  === "paused") {
-//         //Start the stopwatch 
-//         interval = window.setInterval(stopwatch, 1000);
-//         document.getElementById("buttonPlay").innerHTML = "<h3>stop</h3>";
-//         stopwatchwatchStatus = "started";
-//     }
-//     else {
-//         window.clearInterval(interval);
-//         document.getElementById("buttonPlay").innerHTML = "<h3>start</h3>";
-//         stopwatchwatchStatus = "paused";
-//     }
-// }
-// //Function to reset the stopwatch
-// function reset(){
-//     window.clearInterval(interval);
-//     seconds = 0;
-//     minutes = 0;
-//     hours = 0;
-//     document.getElementById("timer").innerHTML = "00:00:00";
-//     document.getElementById("buttonPlay").innerHTML = "Start";
-// }
-// // Selector for the lap outputs
-// var lapList = document.querySelector("#lap-list > ul");
-//Define vars to hold time values
-let seconds = 0;
-let minutes = 0;
-let hours = 0;
-//Define vars to hold "display" value
-let displaySeconds = 0;
-let displayMinutes = 0;
-let displayHours = 0;
-//Define var to hold setInterval() function
+// Tutorials https://tinloof.com/blog/how-to-build-a-stopwatch-with-html-css-js-react-part-2, 
+// https://www.youtube.com/watch?v=1INmsFnD-u4,
+// https://www.sitepoint.com/community/t/javascript-how-to-make-laps-in-the-stopwatch/244936,
+// https://www.youtube.com/watch?v=49f1cjZWRJA, 
+// Define variables to hold time values
+var seconds = 0;
+var minutes = 0;
+var hours = 0;
+// Define variables to hold "display" values
+var displaySeconds = 0;
+var displayMinutes = 0;
+var displayHours = 0;
+// Define variable for setInterval() function
 let interval = null;
-//Define var to hold stopwatch status
-let watchStatus = "stopped";
-//Stopwatch function (logic to determine when to increment next value, etc.)
-function stopWatch() {
+// Define variable to hold stopwatch status, by default it is paused
+let watchStatus = "paused";
+// Selector for the lap outputs
+var lap = document.getElementById('lapButton');
+var lapList = document.getElementById('lapsList');
+// Resets last lap
+var lastLap = {
+    seconds: 0,
+    minutes: 0,
+    hours: 0
+};
+// Stopwatch function
+function playTimer() {
     seconds++;
-    //Logic to determine when to increment next value
+    // Logic to determine when to increment next value
     if (seconds / 60 === 1) {
         seconds = 0;
         minutes++;
@@ -715,36 +654,162 @@ function stopWatch() {
             hours++;
         }
     }
-    //If seconds/minutes/hours are only one digit, add a leading 0 to the value
+    // Update displayed value to add a 0 if there's only one digit
     if (seconds < 10) displaySeconds = "0" + seconds.toString();
     else displaySeconds = seconds;
     if (minutes < 10) displayMinutes = "0" + minutes.toString();
     else displayMinutes = minutes;
     if (hours < 10) displayHours = "0" + hours.toString();
     else displayHours = hours;
-    //Display updated time values to user
-    document.getElementById("display").innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
+    // Display updated time value to user
+    document.getElementById("timer").innerHTML = displayHours + ":" + displayMinutes + ":" + displaySeconds;
 }
-function startStop() {
-    if (watchStatus === "stopped") {
-        //Start the stopwatch (by calling the setInterval() function)
-        interval = window.setInterval(stopWatch, 1000);
-        document.getElementById("startStop").innerHTML = "Stop";
+// Functionality for start/stop button
+startStop.addEventListener("click", function startStop() {
+    if (watchStatus === "paused") {
+        // Start the stopwatch (by calling the setInterval() function)
+        interval = window.setInterval(playTimer, 1000);
+        document.getElementById("startStop").innerHTML = "stop";
         watchStatus = "started";
     } else {
+        // Default button status
         window.clearInterval(interval);
-        document.getElementById("startStop").innerHTML = "Start";
-        watchStatus = "stopped";
+        document.getElementById("startStop").innerHTML = "start";
+        watchStatus = "paused";
     }
-}
-//Function to reset the stopwatch
-function reset() {
+});
+// Function to reset stopwatch
+resetButton.addEventListener("click", function reset() {
     window.clearInterval(interval);
     seconds = 0;
     minutes = 0;
     hours = 0;
-    document.getElementById("display").innerHTML = "00:00:00";
-    document.getElementById("startStop").innerHTML = "Start";
+    document.getElementById("timer").innerHTML = "00:00:00";
+    document.getElementById("startStop").innerHTML = "start";
+});
+// Function to record a lap
+lapButton.addEventListener("click", function lap() {
+    //     lapList.innerHTML += "<li>" + timer.innerHTML + "</li>";
+    // });
+    var lapSeconds = seconds - lastLap.seconds;
+    var lapMinutes = minutes - lastLap.minutes;
+    var lapHours = hours - lastLap.hours;
+    lastLap = {
+        hours: hours,
+        minutes: minutes,
+        seconds: seconds
+    };
+    lapList.innerHTML += "<li>" + leftLaps(lapHours) + ":" + leftLaps(lapMinutes) + ":" + leftLaps(lapSeconds) + "</li>";
+});
+// Checks to see if reset button has been clicked (?)
+function leftLaps(value) {
+    if (value >= 0) return value < 10 ? '0' + value : value;
+    else if (value <= 0) return value < 10 ? '0' + -value : value;
+}
+// Function to clear lap records
+clearLaps.addEventListener("click", function clear() {
+    lapList.innerHTML = '';
+});
+
+},{}],"5fGXv":[function(require,module,exports) {
+const kCard = document.querySelectorAll(".kanban_card");
+const kColumn = document.querySelectorAll(".kanban_column");
+const kSwim = document.querySelectorAll(".kanban_swimlane");
+let draggableCard = null;
+// drag functions
+kCard.forEach((card)=>{
+    card.addEventListener("dragstart", dragStart);
+    card.addEventListener("dragend", dragEnd);
+});
+function dragStart() {
+    draggableCard = this;
+    setTimeout(()=>{
+        this.style.display = "none";
+    }, 0);
+    console.log("dragStart");
+}
+function dragEnd() {
+    draggableCard = null;
+    setTimeout(()=>{
+        this.style.display = "block";
+    }, 0);
+    console.log("dragEnd");
+}
+kColumn.forEach((column)=>{
+    column.addEventListener("dragover", dragOver);
+    column.addEventListener("dragenter", dragEnter);
+    column.addEventListener("dragleave", dragLeave);
+    column.addEventListener("drop", dragDrop);
+});
+kSwim.forEach((swim)=>{
+    swim.addEventListener("dragover", dragOver);
+    swim.addEventListener("dragenter", dragEnter);
+    swim.addEventListener("dragleave", dragLeave);
+    swim.addEventListener("drop", dragDrop);
+});
+function dragOver(e) {
+    e.preventDefault();
+}
+function dragEnter() {
+    this.style.border = "none";
+}
+function dragLeave() {
+    this.style.border = "none";
+}
+function dragDrop() {
+    this.style.border = "none";
+    this.appendChild(draggableCard);
+}
+// form pop-up
+const btns = document.querySelectorAll("[data-target-modal]");
+const close_modals = document.querySelectorAll(".close_modal");
+const overlay = document.getElementById("overlay");
+btns.forEach((btn)=>{
+    btn.addEventListener("click", ()=>{
+        document.querySelector(btn.dataset.targetModal).classList.add("active");
+        overlay.classList.add("active");
+    });
+});
+close_modals.forEach((btn)=>{
+    btn.addEventListener("click", ()=>{
+        const modal = btn.closest(".modal");
+        modal.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+});
+window.onclick = (event)=>{
+    if (event.target == overlay) {
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach((modal)=>modal.classList.remove("active")
+        );
+        overlay.classList.remove("active");
+    }
+};
+// add task functionality
+const task_submit = document.getElementById("task_submit");
+task_submit.addEventListener("click", createTask);
+function createTask() {
+    const task_div = document.createElement("div");
+    const input_val = document.getElementById("taskNameInput").value;
+    const txt = document.createTextNode(input_val);
+    task_div.appendChild(txt);
+    task_div.classList.add("kanban_card");
+    task_div.setAttribute("draggable", "true");
+    // creating delete button
+    const span = document.createElement("span");
+    const span_txt = document.createTextNode("\u00D7");
+    span.classList.add("delete");
+    span.appendChild(span_txt);
+    task_div.appendChild(span);
+    tasklist.appendChild(task_div);
+    span.addEventListener("click", ()=>{
+        span.parentElement.style.display = "none";
+    });
+    task_div.addEventListener("dragstart", dragStart);
+    task_div.addEventListener("dragend", dragEnd);
+    document.getElementById("task_input").value = "";
+    task_form.classList.remove("active");
+    overlay.classList.remove("active");
 }
 
 },{}]},["2xDT7","2OD7o"], "2OD7o", "parcelRequire60da")
