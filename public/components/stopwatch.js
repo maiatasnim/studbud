@@ -1,4 +1,4 @@
-// Tutorials https://tinloof.com/blog/how-to-build-a-stopwatch-with-html-css-js-react-part-2, 
+// Tutorials 
 // https://www.youtube.com/watch?v=1INmsFnD-u4,
 // https://www.sitepoint.com/community/t/javascript-how-to-make-laps-in-the-stopwatch/244936,
 // https://www.youtube.com/watch?v=49f1cjZWRJA, 
