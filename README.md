@@ -12,14 +12,66 @@ On this page users can enter a &quot;session&quot; by clicking the start session
 
 Users can add tasks with the &#39;+ new task&#39; button, which will open a modal containing a form. When they submit the form, the task will appear in the tasklist, and can be dragged into the completion progress columns to the right. The colour of the task will be different depending on the priority.
 
+![mockup kanban](public/media/kanban.png)
+<p align="center">
+  Original concept
+</p>
+
+![final kanban](public/media/kanbanplain.png)
+<p align="center">
+  Final product
+</p>
+
+
 Changes from mock-up:
 
 - The tasklist was originally supposed to be hidden to the side, and expandable when the user clicked the arrow. But the original concept of the tasklist being separate and having duplicates of the tasks seemed redundant, and so it was integrated into the Kanban board.
+
+![mockup tasklist](public/media/task list.png)
+<p align="center">
+  Original tasklist
+</p>
+
 - The pomodoro timer was originally meant to appear in the header section of the page, but when trying to style the page to be responsive it looked very cramped, and so I decided to display it as a modal that is fixed to the bottom left
+
+
+![mockup pomodoro](public/media/session.png)
+<p align="center">
+  Mock-up "session"
+</p>
+
+![final pomodoro](public/media/pomodo.png)
+<p align="center">
+  Final "session"
+</p>
+
+![final pomodoro break](public/media/longbreak.png)
+<p align="center">
+  Pomodoro long break
+</p>
+
 - The music player supposed to appear when the user entered a session, but with the timer fixed to the bottom left, having the music player appear together with the pomodoro would make the screen look cluttered, so users can choose whether they would like to open it from the nav menu
+
+![final music](public/media/music.png)
+<p align="center">
+  Final music player
+</p>
+
 - The add column button was originally a plus icon and positioned to the right next to the column headers, but I had an issue where new columns were created on top of the button, so it was moved to the top of the Kanban board
 - The pomodoro timer has set time intervals, so as to encourage users to be consistent, and not procrastinate with short time intervals, or over-extend themselves with long intervals.
+
+![mockup pomodoro settings](public/media/pomodoro settings.png)
+<p align="center">
+  Mock-up pomodoro settings
+</p>
+
 - The integrated stopwatch that tracked how long users spent on each task was removed as it was unnecessary, since users would already be tracking their work time with the pomodoro timer.
+
+![mockup stopwatch item](public/media/session stopwatch.png)
+<p align="center">
+  Mock-up session stopwatch
+</p>
+
 - The mood and description inputs for each task were also discarded for the sake of simplicity, and because the task divs would be unnecessarily large
 - The &quot;session&quot; function was limited to the kanban page only, as it didn&#39;t make much sense in terms of the user flow to be able to start a session on every page.
 - Due to time restraints, I was unable to implement Kanban swimlanes that acted as categories for the tasks
@@ -28,16 +80,52 @@ Changes from mock-up:
 
 On this page users can save resources and links, and organise them into specific folders.
 
+![mockup materials](public/media/reading list.png)
+<p align="center">
+  Original concept
+</p>
+
+![final materials](public/media/matsandres.png)
+<p align="center">
+  Final product
+</p>
+
 Changes from the mock-up:
 
 - Since the category function was removed from the Kanban board, users will have to create their own folders instead of sorting into existing categories from the Kanban board
+
+![final add folder](public/media/foldermodal.png)
+<p align="center">
+  Add folder modal
+</p>
+
+![final edit folder](public/media/folderedit.png)
+<p align="center">
+  Edit folder name
+</p>
+
 - For simplicity, the file upload function was removed
 - I attempted to code the folder system like the mock-up, but had issues with appending items to the correct folder, so I decided to structure it a different way which I think is a lot easier and quicker to use
 - It has a similar flow to the original concept, but instead of adding resources from within each folder, users just choose which folder they want to sort the item to via the add resource form
 
+![final folder system](public/media/listitems.png)
+<p align="center">
+  Final file structure
+</p>
+
 ## Stopwatch timer
 
 On this page users are able to utilise a stopwatch timer for their study sessions, perhaps to time how long it takes to solve a problem or track their how long they study. They can start, stop, and reset the timer, as well as record laps.
+
+![mockup stopwatch](public/media/stopwatch.png)
+<p align="center">
+  Original concept
+</p>
+
+![final stopwatch](public/media/laps.png)
+<p align="center">
+  Final product
+</p>
 
 Changes from the mock-up:
 
@@ -47,6 +135,9 @@ Changes from the mock-up:
 
 - Most of the buttons are displayed as icons to make the design cleaner and more aesthetically appealing. Users also have pre-existing mental models of what certain icons do and mean (also known as the Jakob&#39;s Law of Internet User Experience), and so they would most likely understand that a pencil icon allows them to edit, a cross allows them to delete or exit, etc. In cases where an icon might be confusing, buttons have text content (ex. the clear laps button on the stopwatch page, a minus icon or cross may be confusing, so a button with text was implemented instead)
 - I added alerts across all the pages which would make sure the user had completed all input fields in a form, as well as to instruct them on how to make changes to elements (kanban columns and folders)
+
+![final task alert](public/media/taskalert.png)
+![final task alert](public/media/columneditalert.png)
 
 ## Reflections
 
