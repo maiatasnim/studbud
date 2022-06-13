@@ -9,7 +9,7 @@ menu_btn.addEventListener('click', function () {
 	nav_menu.classList.toggle('is-active');
 });
 
-// SESSION FUNCTIONALITY
+// SESSION FUNCTIONALITY https://stackoverflow.com/questions/31579700/how-to-make-a-single-button-act-as-a-start-and-stop-button-in-javascript
 
 const session_start = document.querySelector('#start_sesh');
 session_start.addEventListener('click', Start)
