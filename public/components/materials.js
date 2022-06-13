@@ -147,7 +147,7 @@ function createItem() {
         url.href = input_url_val; 
         
         // Creates the text for the item
-        const txt = document.createTextNode(input_itemName_val + ' ' + input_author_val + ' ');
+        const txt = document.createTextNode(input_itemName_val + ' • ' + input_author_val + ' ');
         
         // Attatches the text and url to item
         list_item.appendChild(txt);
