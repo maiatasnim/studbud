@@ -4,6 +4,8 @@
 
 (A NOTE ABOUT MY JAVASCRIPT: I had an issue where in the local server the javascript for a page would not load unless I made a change to the js file and saved, and I believe it was because of everything being imported to script.js. So, to bypass this issue I had to link multiple js files to a html page)
 
+(public/media/kanban.png)<figcaption align = "center">mockup</figcaption>
+
 ## Landing page/Kanban board
 
 The studbud. landing page is the Kanban board page, this is so that users can get an overview of their tasks as soon as they decide to start studying. The colour scheme is bright and in mostly blue green shades, as these colours are known to inspire productivity and calm.
