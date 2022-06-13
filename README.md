@@ -4,7 +4,10 @@
 
 (A NOTE ABOUT MY JAVASCRIPT: I had an issue where in the local server the javascript for a page would not load unless I made a change to the js file and saved, and I believe it was because of everything being imported to script.js. So, to bypass this issue I had to link multiple js files to a html page)
 
-![mockup kanban](public/media/kanban.png)<figcaption align = "center">mockup</figcaption>
+<p align="center">
+  ![mockup kanban](public/media/kanban.png)<figcaption align = "center">mockup</figcaption>
+</p>
+
 
 ## Landing page/Kanban board
 
