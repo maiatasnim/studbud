@@ -27,7 +27,7 @@ Changes from mock-up:
 
 - The tasklist was originally supposed to be hidden to the side, and expandable when the user clicked the arrow. But the original concept of the tasklist being separate and having duplicates of the tasks seemed redundant, and so it was integrated into the Kanban board.
 
-![mockup tasklist](public/media/task list.png)
+![mockup tasklist](public/media/tasklist.png)
 <p align="center">
   Original tasklist
 </p>
@@ -60,14 +60,14 @@ Changes from mock-up:
 - The add column button was originally a plus icon and positioned to the right next to the column headers, but I had an issue where new columns were created on top of the button, so it was moved to the top of the Kanban board
 - The pomodoro timer has set time intervals, so as to encourage users to be consistent, and not procrastinate with short time intervals, or over-extend themselves with long intervals.
 
-![mockup pomodoro settings](public/media/pomodoro settings.png)
+![mockup pomodoro settings](public/media/pomodorosettings.png)
 <p align="center">
   Mock-up pomodoro settings
 </p>
 
 - The integrated stopwatch that tracked how long users spent on each task was removed as it was unnecessary, since users would already be tracking their work time with the pomodoro timer.
 
-![mockup stopwatch item](public/media/session stopwatch.png)
+![mockup stopwatch item](public/media/sessionstopwatch.png)
 <p align="center">
   Mock-up session stopwatch
 </p>
@@ -80,7 +80,7 @@ Changes from mock-up:
 
 On this page users can save resources and links, and organise them into specific folders.
 
-![mockup materials](public/media/reading list.png)
+![mockup materials](public/media/readinglist.png)
 <p align="center">
   Original concept
 </p>
