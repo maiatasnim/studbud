@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>studbud</title>
+    
+    <meta charset="utf_8">
+    <meta name="viewport" content="width=device_width,initial_scale=1"/>
+    <meta name="description" content="web app for studying"/>
+    
+    <link href="scss/main.scss" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://use.typekit.net/lcj0lhj.css">
+    <!-- <link rel="icon" href="img/favicon.png"> -->
+    <script src="https://kit.fontawesome.com/c1248bbf23.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="pomodoro">
+        <!-- <div class="timer">
+            <div class="button-group mode-buttons" id="js-mode-buttons">
+                <button data-mode="pomodoro" class="button active mode-button" id="js-pomodoro">
+                    <img src="./media/tomato.png" alt="tomato pomodoro">
+                </button>
+
+                <button data-mode="shortBreak" class="button mode-button" id="js-short-break">
+                    <img src="./media/pomo_short.png" alt="cup of coffee short break">
+                </button>
+
+                <button data-mode="longBreak" class="button mode-button" id="js-long-break">       
+                    <img src="./media/pomo_long.png" alt="pillow with zs long break">
+                </button>
+            </div>
+                <div class="clock" id="js-clock">
+                <span id="js-minutes">25</span>
+                <span class="separator">:</span>
+                <span id="js-seconds">00</span>
+                </div>
+            <button class="main-button" data-action="start" id="js-btn">
+                <img src="./media/pomo_play.png" alt="play button">
+            </button>
+        </div>
+    </div> -->
+      <div class="timer">
+        <div class="button-group mode-buttons" id="js-mode-buttons">
+          <button
+            data-mode="pomodoro"
+            class="button active mode-button"
+            id="js-pomodoro"
+          >
+            pomodoro
+          </button>
+          <button
+            data-mode="shortBreak"
+            class="button mode-button"
+            id="js-short-break"
+          >
+            short break
+          </button>
+          <button
+            data-mode="longBreak"
+            class="button mode-button"
+            id="js-long-break"
+          >
+            long break
+          </button>
+        </div>
+        <div class="clock" id="js-clock">
+          <span id="js-minutes">25</span>
+          <span class="separator">:</span>
+          <span id="js-seconds">00</span>
+        </div>
+        <button class="main-button" data-action="start" id="js-btn">
+            start
+        </button>
+        <button class="setting_button">
+            settings
+        </button>
+        <button class="reset_button">
+            reset
+        </button>
+      </div>
+      <div class="pomo_modal">
+        <div class="pomo_modal_header">
+          set time:
+        </div>
+        <!-- <div class="pomo_modal_inputs">
+          <label for="pomodoro_input">pomodoro</label>
+          <input type="number" name="pomodoro_input" class="time_input" id="pomodoro_input" required>
+
+          <label for="longbreak_input">long break</label>
+          <input type="number" name="longbreak_input" class="time_input" id="longbreak_input" required>
+
+          <label for="shortbreak_input">short break</label>
+          <input type="number" name="shortbreak_input" class="time_input" id="shortbreak_input" required>
+
+          <label for="interval_input">short break</label>
+          <input type="number" name="interval_input" class="time_input" id="interval_input" required>
+        </div>
+        <button class="submit_times">save</button>     
+         
+      </div> -->
+    <!-- <div class="hidden">
+        <audio src="./media/session_start.mp3" data-sound="start_session"></audio>
+        <audio src="./media/session_end.mp3" data-sound="end_session"></audio>
+        <audio src="./media/break_time.mp3" data-sound="break"></audio>
+        <audio src="./media/break_over.mp3" data-sound="breakOver"></audio>
+    </div> -->
+    <div class="footer"></div>
+</body>
+
+<script src="./components/pomodoro.js"></script>
+</html>

@@ -23,6 +23,7 @@ let watchStatus = "paused";
 var lap = document.getElementById('lapButton');
 var lapList = document.getElementById('lapsList');
 
+
 // Resets last lap
 var lastLap = { seconds: 0, minutes: 0, hours: 0 };
 
@@ -111,9 +112,9 @@ lapButton.addEventListener("click", function lap() {
 //     lapList.innerHTML += "<li>" + timer.innerHTML + "</li>";
 // });
 
-    var lapSeconds = seconds - lastLap.seconds;
-    var lapMinutes = minutes - lastLap.minutes;
-    var lapHours = hours - lastLap.hours;
+    let lapSeconds = seconds - lastLap.seconds;
+    let lapMinutes = minutes - lastLap.minutes;
+    let lapHours = hours - lastLap.hours;
     
     lastLap = {
     hours: hours,

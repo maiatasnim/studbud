@@ -77,22 +77,27 @@ select {
   }
 }
 
-// .grid-container {  display: grid;
-//   grid-template-columns: 400px 1fr 1fr;
-//   grid-template-rows: auto 1fr 1fr auto;
-//   gap: 10px 10px;
-//   grid-auto-flow: row;
-//   grid-template-areas:
-//     "header header header"
-//     "tasklist kanban kanban"
-//     "tasklist kanban kanban"
-//     "footer footer footer";
-// }
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em;
+  width: 100vw;
 
-// .header { grid-area: header; }
+  .web_title {
+    font-family: acumin-pro-wide, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 2.5rem;
+  }
 
-// .tasklist { grid-area: tasklist; }
+  .quote {
+    font-family: 'Abhaya Libre', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: right;
+  }
+}
 
-// .kanban { grid-area: kanban; }
 
-// .footer { grid-area: footer; }
+

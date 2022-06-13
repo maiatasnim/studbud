@@ -1,60 +1,166 @@
-.container {  display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr 1fr auto;
-    gap: 10px 10px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "header header"
-      "stopwatch lap-list"
-      "stopwatch lap-list"
-      "footer footer";
-  }
-  
-  .header { grid-area: header; }
-  
-  .footer { grid-area: footer; }
-  
-  .stopwatch { grid-area: stopwatch; }
-  
-  .lap-list { grid-area: lap-list; }
-  
-  .stopwatch {
-    display: grid;
-    justify-items: center;
-    grid-row-gap: 23px;
-    width: 100%;
-    padding-top: 25px;
-  }
-  
+.stopwatch_title {
+  font-family: acumin-pro-wide, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  color: #DA8547;
+  margin: 0.5em;
+}
+
+.stopwatch {
+  display: block;
+  align-items: center;
+  justify-items: center;
+  width: 45vw;
+  height: fit-content;
+  margin-top: 8vh;
+  margin-left: 3vw;
+  text-align: center;
+
   .watch {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    i {
+      position: relative;
+      z-index: 0;
+      color: #F3C377;
+      opacity: 0.5;
+      margin-top: -30vh;
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
+      font-family: acumin-pro-wide, sans-serif;
+      font-weight: 500;
+      font-style: normal;
+      color: #DA8547;
+      opacity: 0.8;
+      justify-content: space-between;
+      margin: 0em 2.5em;
+      width: 100%;
+    }
   
-    height: 270px;
-    width: 270px;
-  
+    #timer {
+      position: relative;
+      z-index: 2;
+      font-family: aktiv-grotesk-extended, sans-serif;
+      font-weight: 200;
+      font-style: normal;
+      font-size: 4em;
+      margin: auto;
+      padding-top: 0.5em;
+    }
+
   }
+
 
   .controls {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    font-family: acumin-pro-wide, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+        
+    width: fit-content;
+    margin: auto;
+    padding-top: 2em;
   
-    width: 187px;
-  }
-   
-  #playButton {
-    display: block;
-  }
+    #startStop, #lapButton {
+      border: none;
+      background-color: #F3C377;
+      padding: 0.5em;
+      border-radius: 0.5em;
+      width: 6em;
+      margin: 0.5em;
+      color: white;
+    }
   
-  #pauseButton {
-    display: none;
+    #resetButton {
+      padding: 0.5em;
+      border-radius: 0.5em;
+      width: 6em;
+      margin: 0.5em;
+      color: #DA8547;
+      background-color: white;
+      border-width: 0.2em;
+      border-style: solid;
+      border-color: #F3C377;
+    }
+  }
+}
+
+.lap-list {
+  display: block;
+  position: relative;
+  margin-top: -55vh;
+  width: 45vw;
+  height: fit-content;
+  left: 50vw;
+  margin-left: 2em;
+  padding: 0.5em;
+  
+  .lap_list_heading {
+    display: flex;
+    width: 45vw;
+    height: fit-content;
+    padding: 0.3em;
+    background-color: #DA8547;
+    border-radius: 0.5em;
+    justify-content: space-between;
+    align-items: center;
+    
+
+    h2 {
+      font-family: acumin-pro-wide, sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 1.3em;
+      color: white;
+      margin: 0em 0.5em;
+    }
+
+
+    #clearLaps {
+      padding: 0.5em;
+      border-radius: 0.5em;
+      width: 4em;
+      height: fit-content;
+      color: #DA8547;
+      background-color: white;
+      border: none;
+      margin: 0em 0.5em;
+
+      font-family: acumin-pro-wide, sans-serif;
+      font-weight: 600;
+      font-style: normal;
+      font-size: 1em;
+    }
   }
 
-  #timeLabels {
-    display: block;
+  ul {
+    width: 45vw;
+    padding-left: 0;
   }
+
+  li {
+    height: fit-content;
+    padding: 1em;
+    list-style: none;
+    margin: none;
+    border-radius: 0.5em;
+    font-family: aktiv-grotesk-extended, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.9em;
+  }
+
+  li:nth-child(odd) { 
+    background-color: #E5E5E5; 
+  }
+
+  li:nth-child(even) { 
+    background-color: white; 
+  }
+}
+
   
-  .lap-list {
-    display: block;
-  }

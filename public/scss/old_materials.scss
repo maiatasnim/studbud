@@ -1,0 +1,171 @@
+.folders_list {
+    width: 50%;
+    background-color: green;
+    height: fit-content;
+    padding: 1em;
+    margin: 0.5em;
+
+    button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        width: fit-content;
+        height: fit-content;
+    }
+
+    .div_header {
+        display: flex;
+        height: fit-content;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5em;
+
+        #folder_name {
+            margin-top: 3em;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+  
+    }
+
+    .folder {
+        display: flex;
+        justify-content: space-evenly;
+        background-color: aqua;
+        width: 98%;
+        height: 3em;
+        margin-top: 0.5em;
+        border-radius: 0.5em;
+        overflow: visible;
+        align-items: center;
+        justify-content: space-evenly;
+        cursor: pointer;
+    
+        position: relative;
+
+        h4 {
+            padding: 0.7em;
+            margin-right: 20vw;
+            float: left;
+        }
+
+        i {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .folder_items {
+            display: none;
+            position: absolute;
+            background-color: lavender;
+            width: 100%; 
+            height:fit-content;
+            left: 102%;
+            top: -145%;
+            padding: 0.5em;
+            margin-left: 3vw;
+            border-radius: 0.5em;
+             
+            i {
+                padding: 0.5em;
+                float: right;
+             }
+
+            .items_list {
+                display: block;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                height: fit-content;
+                margin-top: 2.5em;
+            }
+
+
+            .item {
+                display: flex;
+                justify-content: space-between;
+                padding: 0.5em;
+                margin: 0.5em 0;
+                width: 100%;
+                height: fit-content;
+                background-color: grey;
+                border-radius: 0.5em;
+                font-weight: bold;
+                align-items: center;
+                font-size: 80%;
+
+                i {
+                    padding: 0.5em;
+                    margin-left: 5em;
+                    margin-right: 1em;
+                }
+            }
+    
+    
+        }
+    
+    }
+}
+
+.materials_modal {
+    background-color: blue;
+    width: 20em;
+    height: fit-content;
+    padding: 1em;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 1em;
+    display: none;
+    position: absolute;
+    z-index: 2;
+    margin-left: 2em;
+
+    top: 50vh;
+    left: 45vw;
+    transform: translate(-50%, -50%);
+
+
+
+    .form_header {
+        display: flex;
+        height: fit-content;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em;
+    }
+    .item_form_questions {
+        display: block;
+        font-size: medium;
+        width: 50%;
+        height: 100%;
+        margin: 0% 0% 3% 13%;
+        
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: left;
+    }
+
+    .submit_item {
+        background-color: green;
+        color: #f3f3f3;
+        width: 7em;
+        font-size: 1rem;
+        border: none;
+        border-radius: 4px;
+        padding: 0.5rem;
+        cursor: pointer;
+        outline: none;
+        margin: 5% 29% 2%;
+    }
+
+    .close-modal{
+        background: none;
+        outline: none;
+        display: inline;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}

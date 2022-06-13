@@ -1,239 +1,465 @@
-// .container {  display: grid;
-  //     grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
-  //     grid-template-rows: auto 1fr auto;
-  //     gap: 10px 10px;
-  //     grid-auto-flow: row;
-  //     grid-template-areas:
-  //       "header header header header header"
-  //       "tasklist to-start in-progress completed overdue"
-  //       "footer footer footer footer footer";
-  //   }
-  
-  //   .header { grid-area: header; }
-  
-  //   .footer { grid-area: footer; }
-  
-  //   .to-start {
-    //       grid-area: to-start; 
-    //       align-items: center;
-    //     }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.add_column {
+  border: none;
+  position: static;
+  background-color: #6A81F5;
+  color: white;
+  width: fit-content;
+  padding: 0.5em;
+  margin: 1em 2vw 0;
+  font-family: acumin-pro-wide, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 0.8rem;
+  border-radius: 0.5em;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+}
+
+.pomodoro_modal {
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  padding: 2em;
+  position: fixed;
+  bottom: 4;
+  left: 9;
+  border-radius: 0.5em;
+  z-index: 1;
+  background-color: #95C6AC;
+  text-align: center;
+
+  .pomo_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem;
+
+    font-family: acumin-pro-wide, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.5em;
+
+    color: #426A5A;
+
+    button {
+      border: none;
+      background-color: transparent;
+      float: right;
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem;
+
+    font-family: acumin-pro-wide, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 0.9em;
+
+    color: #426A5A;
+
+    button {
+      border: none;
+      padding: 0.5em;
+      background-color: transparent;
+      float: right;
+      color: #426A5A;
+      cursor: pointer;
+    }
+
+    button:hover {
+      color: white;
+      transition: 0.3s ease;
+    }
+
+    button.active {
+      color: white;
+    }
+
+  }
+
+  .clock {
+
+    span {
+      font-family: aktiv-grotesk-extended, sans-serif;
+      font-weight: 200;
+      font-style: normal;
+      font-size: 4em;
+      margin: auto;
+      padding: 0.3em;
+      color: white;
+    }
+  }
+
+  .play_buttons {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem;
+
+    font-family: acumin-pro-wide, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 0.9em;
+
+    button {
+      border: none;
+      background-color: white;
+      padding: 0.5em;
+      border-radius: 0.5em;
+      width: 6em;
+      margin: 0em;
+      color: #426A5A;
+      cursor: pointer;
+    }
+  }
+
+}
+.modal {
+
+  width: 48vw;
+  position: absolute;
+  left: 50%;
+  top: -100%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  border-radius: 0.5em;
+  z-index: 3;
+  background-color: #BFDBED;
+  text-align: center;
+
+  .form_header {
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 3em;
+    text-align: center;
     
-    //   .in-progress { grid-area: in-progress; }
-    
-    //   .completed { grid-area: completed; }
-    
-    //   .overdue { grid-area: overdue; }
-    
-    //   .tasklist { grid-area: tasklist; }
-    
-    .kanban_board {
-      width: 1200px;
-      height: 90vh;
-      margin: 2vw;
-      display: flex;
-      flex-wrap: wrap;
-      padding: 0;
+
+    .form_title {
+      font-size: 1.5rem;
+
+      font-family: acumin-pro-wide, sans-serif;
+      font-weight: 500;
+      font-style: normal;
+
+      color: #245C7F;
+    }
+
+    .close-modal{
+      border: none;
+      background-color: transparent;
+      float: right;
+      color: white;
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
       
-      // .kanban-headers {
-        //   flex-direction: column;
-        //   box-sizing: border-box;
-        //   flex-grow: 1;
-        //   overflow: hidden;
-        //   list-style: none;
-        
-        //   width: 1000px;
-        //   height: fit-content;
-        //   padding: 0.8em 1.2em;
-        
-        //   position: absolute;
-        //   z-index: 1;
-        //   justify-content: center;
-        //   text-align: center;
-        
-        .kanban_column {
-          flex-direction: column;
-          box-sizing: border-box;
-          flex-grow: 1;
-          overflow: hidden;
-          list-style: none;
-          
-          width: 20%;
-          height: 100%;
-          margin-top: 4.8%;
-          padding: 0.8em 1.2em;
-          
-          position: relative;
-          justify-content: space-evenly;
-          text-align: center;
-          
-          background-color: red;
-          
-          h2 {
-            display: inline-block;
-            text-align: center;
-          }
-          
-        }
-        
-        // .kanban-swimlane {
-          //   flex-direction: row;
-          //   box-sizing: border-box;
-          //   flex-grow: 1;
-          //   overflow: hidden;
-          //   list-style: none;
-          
-          //   position: absolute;
-          //   z-index: 2;
-          //   justify-content: center;
-          //   text-align: center;
-          
-          //   width: 1000px;
-          //   height: fit-content;
-          //   margin-top: 4.8%;
-          //   padding: 2px;
-          
-          //   background-color: blue;
-          // }
-          
-          .kanban_card {
-            position: absolute;
-            
-            padding: 0.8em 1.2em;
-            width: 200px;
-            margin: 10px;
-            height: fit-content;
-            
-            justify-content: space-between;
-            cursor: grab;
-            
-            background-color: yellow;
-          }
+  }
 
-          .new_task {
-            width: 200px;
-            margin-top: 15px;
-            margin-left: 10px;
-            height: 40px;
-            border: none;
-            padding: none;
-            justify-content: center;
-            
-            background-color: blue;
-          }
-        }
-        
-        // task form styles
-        
-        .modal {
-          width: 500px;
-          align-items: center;
-          position: absolute;
-          margin-top: -50vh;
-          margin-left: 30vw;
-          opacity: 0;
-          transition: opacity 0.6s;
-          border-radius: 10px;
-          z-index: 2;
-          background-color: #fff;
-          
-          .form_header {
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            border-bottom: 1px solid #ccc;
-            padding: 0.5rem;
-            background-color: rgba(0, 0, 0, 0.05);
+  .form_questions {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    padding: 0.75rem 2rem;
 
-            h3 {
-              display: inline;
-              margin-right: 320px;
-            }
+    font-family: acumin-pro, sans-serif;
+    font-weight: 500;
+    font-style: italic;
 
-            .close_modal{
-              background: none;
-              display: inline;
-              border: none;
-              font-size: 1.5rem;
-            }
+    .form_column {
+      display: block;
+      font-size: medium;
+      width: 50%;
+      height: 100%;
+                    
+      padding: 0.8em 1.2em;
+                    
+      position: relative;
+      justify-content: space-evenly;
+      text-align: left;
 
-            .close_modal:hover {
-              font-weight: bold;
-            }
-          }
-          
-          .form_questions {
-            display: flex;
-            align-items: center;
-            height: fit-content; 
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px 30px 0px 30px;
+      .task_input {
+        padding: 0.2rem 1rem;
+        width: 100%;
+        margin: 0.5rem 0rem;
 
-            .quest_column {
-              display: block;
-              font-size: medium;
-              width: 50%;
-              height: 100%;
-              
-              padding: 0.8em 1.2em;
-              
-              position: relative;
-              justify-content: space-evenly;
-              text-align: left;
+        font-family: acumin-pro, sans-serif;
+        font-weight: 500;
+        font-style: normal;
 
-              label {
-                margin-top: 15px;
-              
-              }
+        color: #838383;
+        border: none;
 
-              input, select {
-                margin-bottom: 10px;
-                margin-right: 80px;
-              }
+      }
 
-            }
+      #completionTimeInput {
+        width: 35%;
+        margin-right: 0.3rem;
+      }
 
+    }
+    
+  }
 
-            
+  #task_submit {
+    background-color: white;
+    color: #245C7F;
+    font-family: acumin-pro-wide, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.5rem 1.5rem;
+    margin: auto;
+    margin-bottom: 2.5em;
+    cursor: pointer;
+    outline: none;
+  }
 
-          }
+}
 
-          #task_submit {
-            padding: 0.5em 1em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            cursor: pointer;
-            outline: none;
-            margin: 2% 42% 6%;
-          }
-          
-          #task_submit:active {
-            transform: scale(0.9);
-          }
-        }
+.modal.active {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
 
-        .modal.active {
-          position: absolute;
-          margin-top: 20vh;
-          opacity: 1;
-        }
-        
-        
-        
-        #overlay {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.3);
+.kanban_board {
+  width: 100vw;
+  height: 100vh;
+  margin: 0.5em 0vw 0.5em 2vw;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+
+  .column_container {
+    display: block;
+    width: 18%;
+    height: fit-content;
+    margin-right: 0.3em;
+    margin-top: 0.5em;
+    justify-content: space-between;
+    
+    #tasklist {
+      background-color: #FF92AC;
+    }
+
+    #task_list {
+      color: white;
+      font-size: 1em;
+      font-family: acumin-pro-wide, sans-serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    #tasklist_header {
+      text-align: center;
+      justify-content: center;
+      background-color: #FF92AC;
+    }
+    
+    .column_header {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      
+      padding: 0.6em;
+      border-radius: 0.5em;
+      background-color: #BFDBED;
+      overflow: hidden;
+      margin-bottom: 0;
   
-        }
+      justify-content: space-between;
+      align-items: center;
+  
+      .header_txt {
+        color: #245C7F;
+        font-size: 1em;
+        font-family: acumin-pro-wide, sans-serif;
+        font-weight: 500;
+        font-style: normal;
 
-        #overlay.active {
-          display: block;
+      }
+  
+      .header_buttons {
+        display: inline;
+        margin: none;
+        padding: none;
+        button {
+          border: none;
+          background-color: transparent;
+          cursor: pointer;
         }
+      }
+    }
+
+    .kanban_column {
+      width: 100%;
+      height: 95vh;
+      margin-top: 2.5%;
+      margin-bottom: 2.5%;
+      position: relative;
+      padding: 1.5em 1rem;
+      border-radius: 0.5em;
+      background-color: #6A81F5;
+      overflow: hidden;
+      list-style: none;
+  
+      justify-content: space-evenly;
+      text-align: center;
+      align-items: center;
+      
+      .new_task {
+        width: 100%;
+        height: fit-content;
+        padding: 0.5rem 1rem;
+        background-color: transparent;
+        transition: 0.5s ease;
+        color: white;
+        outline: none;
+        border: none;
+        font-size: 1rem;
+        border-radius: 0.5em;
+        cursor: pointer;
+
+        font-family: acumin-pro-wide, sans-serif;
+        font-weight: 500;
+        font-style: normal;
+      }
+      
+      .new_task:hover {
+        color: #6A81F5;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .kanban_board {
+    width: 100%;
+    height: 100%;
+  } 
+}
+
+@media screen and (max-width: 600px) {
+  .header_txt {
+      font-size: 1.5vw;
+  } 
+}
+
+#low {
+  background-color: #AD7015;
+}
+
+#medium {
+  background-color: #C53F14;
+}
+
+#high {
+  background-color: #AD1539;
+}
+
+#task_type {
+  color: #80B8DB;
+}
+
+.card {
+  white-space: pre-wrap;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5em;
+  padding: 0.5rem 1rem;
+  font-size: 0.9em;
+  margin: 0.5rem 0;
+  text-align: left;
+  color: white;
+
+  font-family: acumin-pro-wide, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  
+
+  .delete {
+    border: none;
+    background-color: transparent;
+    float: right;
+    color: #A8A8A8;
+    cursor: pointer;
+    margin-left: 2em;
+  }
+  
+}
+
+
+#overlay {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#overlay.active {
+  display: block;  
+}
+
+.music_player {
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  padding: 0;
+  position: fixed;
+  bottom: 4;
+  right: 9;
+  border-radius: 0.5em;
+  z-index: 1;
+
+  button {
+    border: none;
+    background-color: transparent;
+    align-self: baseline;
+    padding: 0 1em;
+    font-size: 1.3em;
+    cursor: pointer;
+  }
+}
+
+  
+
+
+
+
         
         
 

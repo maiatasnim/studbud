@@ -1,0 +1,99 @@
+.hamburger {
+	position: relative;
+    z-index: 100;
+	display: block;
+	width: 2.5em;
+	cursor: pointer;
+	
+	appearance: none;
+	background: none;
+	outline: none;
+	border: none;
+}
+
+.hamburger .bar, .hamburger:after, .hamburger:before {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 0.3em;
+	background-color: black;
+	margin: 6px 0px;
+	transition: 0.4s;
+    border-radius: 1em;
+}
+
+.hamburger.is-active:before {
+	transform: rotate(-45deg) translate(-8px, 6px);
+}
+
+.hamburger.is-active:after {
+	transform: rotate(45deg) translate(-9px, -8px);
+}
+
+.hamburger.is-active .bar {
+	opacity: 0;
+}
+
+.navigation {
+	position: fixed;
+	top: 0;
+	right: -100%;
+	width: 40vw;
+	min-height: 100vh;
+	display: block;
+	z-index: 98;
+	background-color: #F9FFF6;
+    border: solid #A8CDBE;
+    border-width: 0.2em;
+	padding: 6em 4em 0em 0em;
+	transition: 0.4s;
+    border-radius: 1em 0em 0em 1em;
+
+    a {
+        display: block;
+        width: 100%;
+        margin: 0 9em 0 0em ;
+        text-align: right;
+        padding: 1em;
+    
+        color: black;
+        text-decoration: none;
+    
+        font-family: acumin-pro-wide, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.2rem;
+    }
+
+    button {
+        border: none;
+        background-color: transparent;
+        font-family: acumin-pro-wide, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.2rem;
+
+        display: block;
+        width: 100%;
+        margin: 0 9em 0 0em ;
+        text-align: right;
+        padding: 1em;
+        cursor: pointer;
+    }
+}
+
+.navigation.is-active {
+	right: 0;
+    font-weight: 500;
+}
+
+
+.navigation a:hover {
+	font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.navigation button:hover {
+	font-weight: 600;
+    transition: 0.2s ease;
+}
