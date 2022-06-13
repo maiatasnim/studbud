@@ -30,16 +30,16 @@ modeButtons.addEventListener('click', handleMode);
 
 function getRemainingTime(endTime) {
   // Finds difference between current time and future end time of
-  // curent timer mode to determine and store total number of seconds left
+  // curent timer mode to determine and store timerTotal number of seconds left
   const currentTime = Date.parse(new Date());
   const difference = endTime - currentTime;
 
-  const total = Number.parseInt(difference / 1000, 10);
-  const minutes = Number.parseInt((total / 60) % 60, 10);
-  const seconds = Number.parseInt(total % 60, 10);
+  const timerTotal = Number.parseInt(difference / 1000, 10);
+  const minutes = Number.parseInt((timerTotal / 60) % 60, 10);
+  const seconds = Number.parseInt(timerTotal % 60, 10);
   
   return {
-    total,
+    timerTotal,
     minutes,
     seconds,
   };
@@ -47,8 +47,8 @@ function getRemainingTime(endTime) {
 
 function startTimer() {
   // Calculates when the timer will end
-  let { total } = timer.remainingTime;
-  const endTime = Date.parse(new Date()) + total * 1000;
+  let { timerTotal } = timer.remainingTime;
+  const endTime = Date.parse(new Date()) + timerTotal * 1000;
 
   // Adds increments to sessions value at the start of each pomodoro
   if (timer.mode === 'pomodoro') timer.sessions++;
@@ -63,10 +63,10 @@ function startTimer() {
     timer.remainingTime = getRemainingTime(endTime);
     updateClock();
 
-    // Checks to see if total remaining time is equal to zero
+    // Checks to see if timerTotal remaining time is equal to zero
     // if yes will clear timer
-    total = timer.remainingTime.total;
-    if (total <= 0) {
+    timerTotal = timer.remainingTime.timerTotal;
+    if (timerTotal <= 0) {
       clearInterval(interval);
 
       // Automatically switches modes when one mode is completed
@@ -120,7 +120,7 @@ function switchMode(mode) {
   timer.mode = mode;
   timer.remainingTime = {
     // Seconds remaining for current mode
-    total: timer[mode] * 60,
+    timerTotal: timer[mode] * 60,
     // Initial minutes and seconds for target mode
     minutes: timer[mode],
     seconds: 0,
