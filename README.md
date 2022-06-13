@@ -1,6 +1,6 @@
 # studbud
 
-_&#39;_studbud.&#39; is a web app catered toward students with study anxiety, designed to help them structure their study lessons in a way that allows them to effectively manage time and organise all their study resources in one place.
+&#39;studbud.&#39; is a web app catered toward students with study anxiety, designed to help them structure their study lessons in a way that allows them to effectively manage time and organise all their study resources in one place.
 
 (A NOTE ABOUT MY JAVASCRIPT: I had an issue where in the local server the javascript for a page would not load unless I made a change to the js file and saved, and I believe it was because of everything being imported to script.js. So, to bypass this issue I had to link multiple js files to a html page)
 
