@@ -2,150 +2,43 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-}
+// add column button 
 
 .add_column {
   border: none;
-  position: static;
   background-color: #6A81F5;
   color: white;
   width: fit-content;
-  padding: 0.5em;
   margin: 1em 2vw 0;
+
   font-family: acumin-pro-wide, sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 0.8rem;
+
   border-radius: 0.5em;
   padding: 0.5rem 1.5rem;
   cursor: pointer;
 }
 
-.pomodoro_modal {
-  display: none;
-  width: fit-content;
-  height: fit-content;
-  padding: 2em;
-  position: fixed;
-  bottom: 4;
-  left: 9;
-  border-radius: 0.5em;
-  z-index: 1;
-  background-color: #95C6AC;
-  text-align: center;
+// New task modal
 
-  .pomo_header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.6rem;
-
-    font-family: acumin-pro-wide, sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 1.5em;
-
-    color: #426A5A;
-
-    button {
-      border: none;
-      background-color: transparent;
-      float: right;
-      color: white;
-      cursor: pointer;
-    }
-  }
-
-  .button-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.6rem;
-
-    font-family: acumin-pro-wide, sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 0.9em;
-
-    color: #426A5A;
-
-    button {
-      border: none;
-      padding: 0.5em;
-      background-color: transparent;
-      float: right;
-      color: #426A5A;
-      cursor: pointer;
-    }
-
-    button:hover {
-      color: white;
-      transition: 0.3s ease;
-    }
-
-    button.active {
-      color: white;
-    }
-
-  }
-
-  .clock {
-
-    span {
-      font-family: aktiv-grotesk-extended, sans-serif;
-      font-weight: 200;
-      font-style: normal;
-      font-size: 4em;
-      margin: auto;
-      padding: 0.3em;
-      color: white;
-    }
-  }
-
-  .play_buttons {
-    display: flex;
-    width: 80%;
-    margin: auto;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.6rem;
-
-    font-family: acumin-pro-wide, sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 0.9em;
-
-    button {
-      border: none;
-      background-color: white;
-      padding: 0.5em;
-      border-radius: 0.5em;
-      width: 6em;
-      margin: 0em;
-      color: #426A5A;
-      cursor: pointer;
-    }
-  }
-
-}
 .modal {
-
   width: 48vw;
+  height: fit-content;
   position: absolute;
   left: 50%;
   top: -100%;
   transform: translate(-50%, -50%);
+
   opacity: 0;
   transition: opacity 0.6s ease;
+
   border-radius: 0.5em;
   z-index: 3;
   background-color: #BFDBED;
   text-align: center;
-
+  
   .form_header {
     height: 4rem;
     display: flex;
@@ -153,19 +46,18 @@ body {
     align-items: center;
     margin-top: 2rem;
     padding: 3em;
-    text-align: center;
+    text-align: center;   
     
-
     .form_title {
       font-size: 1.5rem;
-
+      
       font-family: acumin-pro-wide, sans-serif;
       font-weight: 500;
       font-style: normal;
-
+      
       color: #245C7F;
     }
-
+    
     .close-modal{
       border: none;
       background-color: transparent;
@@ -174,50 +66,50 @@ body {
       cursor: pointer;
       font-size: 1.3rem;
     }
-      
+    
   }
-
+  
   .form_questions {
     height: fit-content;
     display: flex;
     justify-content: center;
     padding: 0.75rem 2rem;
-
+    
     font-family: acumin-pro, sans-serif;
     font-weight: 500;
     font-style: italic;
-
+    
     .form_column {
       display: block;
       font-size: medium;
       width: 50%;
       height: 100%;
-                    
+      
       padding: 0.8em 1.2em;
-                    
+      
       position: relative;
       justify-content: space-evenly;
       text-align: left;
-
+      
       .task_input {
         padding: 0.2rem 1rem;
         width: 100%;
         margin: 0.5rem 0rem;
-
+        
         font-family: acumin-pro, sans-serif;
         font-weight: 500;
         font-style: normal;
-
+        
         color: #838383;
         border: none;
-
+        
       }
-
+      
       #completionTimeInput {
         width: 35%;
         margin-right: 0.3rem;
       }
-
+      
     }
     
   }
@@ -225,19 +117,20 @@ body {
   #task_submit {
     background-color: white;
     color: #245C7F;
+
     font-family: acumin-pro-wide, sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 1rem;
+
     border: none;
     border-radius: 0.5em;
     padding: 0.5rem 1.5rem;
     margin: auto;
     margin-bottom: 2.5em;
     cursor: pointer;
-    outline: none;
   }
-
+  
 }
 
 .modal.active {
@@ -248,14 +141,15 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.kanban_board {
-  width: 100vw;
-  height: 100vh;
-  margin: 0.5em 0vw 0.5em 2vw;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
+// kanban board
 
+.kanban_board {
+  width: 103vw;
+  height: 100vh;
+  margin: 0.5em 2vw;
+  display: flex;
+  padding: 0;
+  
   .column_container {
     display: block;
     width: 18%;
@@ -267,7 +161,7 @@ body {
     #tasklist {
       background-color: #FF92AC;
     }
-
+    
     #task_list {
       color: white;
       font-size: 1em;
@@ -275,7 +169,7 @@ body {
       font-weight: 500;
       font-style: normal;
     }
-
+    
     #tasklist_header {
       text-align: center;
       justify-content: center;
@@ -292,23 +186,24 @@ body {
       background-color: #BFDBED;
       overflow: hidden;
       margin-bottom: 0;
-  
+      
       justify-content: space-between;
       align-items: center;
-  
+      
       .header_txt {
         color: #245C7F;
         font-size: 1em;
         font-family: acumin-pro-wide, sans-serif;
         font-weight: 500;
         font-style: normal;
-
+        
       }
-  
+      
       .header_buttons {
         display: inline;
         margin: none;
         padding: none;
+
         button {
           border: none;
           background-color: transparent;
@@ -316,19 +211,18 @@ body {
         }
       }
     }
-
+    
     .kanban_column {
       width: 100%;
       height: 95vh;
-      margin-top: 2.5%;
-      margin-bottom: 2.5%;
+      margin: 2.5% 0;
       position: relative;
       padding: 1.5em 1rem;
       border-radius: 0.5em;
       background-color: #6A81F5;
       overflow: hidden;
       list-style: none;
-  
+      
       justify-content: space-evenly;
       text-align: center;
       align-items: center;
@@ -337,15 +231,17 @@ body {
         width: 100%;
         height: fit-content;
         padding: 0.5rem 1rem;
+
         background-color: transparent;
         transition: 0.5s ease;
         color: white;
         outline: none;
         border: none;
+
         font-size: 1rem;
         border-radius: 0.5em;
         cursor: pointer;
-
+        
         font-family: acumin-pro-wide, sans-serif;
         font-weight: 500;
         font-style: normal;
@@ -358,75 +254,59 @@ body {
   }
 }
 
-
-@media screen and (max-width: 600px) {
-  .kanban_board {
-    width: 100%;
-    height: 100%;
-  } 
-}
-
-@media screen and (max-width: 600px) {
-  .header_txt {
-      font-size: 1.5vw;
-  } 
-}
-
-#low {
-  background-color: #AD7015;
-}
-
-#medium {
-  background-color: #C53F14;
-}
-
-#high {
-  background-color: #AD1539;
-}
-
-#task_type {
-  color: #80B8DB;
-}
+// Individiual task cards
 
 .card {
-  white-space: pre-wrap;
   width: 100%;
-  height: fit-content;
+  height: max-content;
   display: flex;
+
   justify-content: space-between;
   align-items: center;
+
   border-radius: 0.5em;
   padding: 0.5rem 1rem;
   font-size: 0.9em;
+
   margin: 0.5rem 0;
   text-align: left;
   color: white;
-
+  
   font-family: acumin-pro-wide, sans-serif;
   font-weight: 400;
   font-style: normal;
   
-
+  
   .delete {
     border: none;
     background-color: transparent;
     float: right;
     color: #A8A8A8;
     cursor: pointer;
-    margin-left: 2em;
   }
-  
+
 }
 
+#low {
+  background-color: #FFF8E6;
+}
+
+#medium {
+  background-color: #FCE4D9;
+}
+
+#high {
+  background-color: #FFE6E6;
+}
+
+// overlay
 
 #overlay {
   display: none;
-  position: absolute;
+  position: sticky;
   z-index: 2;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -434,42 +314,21 @@ body {
   display: block;  
 }
 
-.music_player {
-  display: none;
-  width: fit-content;
-  height: fit-content;
-  padding: 0;
-  position: fixed;
-  bottom: 4;
-  right: 9;
-  border-radius: 0.5em;
-  z-index: 1;
-
-  button {
-    border: none;
-    background-color: transparent;
-    align-self: baseline;
-    padding: 0 1em;
-    font-size: 1.3em;
-    cursor: pointer;
-  }
-}
-
-  
 
 
 
 
-        
-        
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+

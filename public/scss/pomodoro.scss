@@ -1,48 +1,113 @@
-// * {
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-// }
+.pomodoro_modal {
+    display: none;
+    width: fit-content;
+    height: fit-content;
 
-// .pomodoro {
-//     display: inline;
-//     align-items: center;
-//     width: fit-content;
-//     height: fit-content;
-//     background-color: green;
-
-//     #timer {
-//         font-size: 3.5rem;
-//         float: left;
-//     }
-
-//     .controls {
-//         display: inline;
-//         align-items: center;
-//         justify-content: space-evenly;
-//         padding: 1.5em;
-
-//         button {
-//             outline: none;
-//             background-color: transparent;
-//             border: none;
-//             width: 2em;
-//             height: 2em;
-//             cursor: pointer;
-//             margin-right: 0.5em;
-//             padding-top: 1.5em;
-//         }
-        
-//         img {
-//             width: 2em;
-//             height: 2em;
-//         }
+    padding: 2em;
+    position: fixed;
+    bottom: 4;
+    left: 9;
     
-//     }
-// }
-
-
- 
-// .play_pause.playing .play_pausebutton {
-//      clip-path: polygon(0 0, 40% 0, 40% 100%, 60% 100%, 60% 0, 100% 0, 100% 100%, 0 100%);
-// }
+    border-radius: 0.5em;
+    z-index: 1;
+    background-color: #95C6AC;
+    text-align: center;
+    
+    // Header with title and button
+    .pomo_header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem;
+        
+        font-family: acumin-pro-wide, sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 1.5em;
+        
+        color: #426A5A;
+        
+        button {
+            border: none;
+            background-color: transparent;
+            float: right;
+            color: white;
+            cursor: pointer;
+        }
+    }
+    
+    // Pomodoro mode buttons
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem;
+        
+        font-family: acumin-pro-wide, sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 0.9em;
+        
+        color: #426A5A;
+        
+        button {
+            border: none;
+            padding: 0.5em;
+            background-color: transparent;
+            float: right;
+            color: #426A5A;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            color: white;
+            transition: 0.3s ease;
+        }
+        
+        button.active {
+            color: white;
+        }
+        
+    }
+    
+    // Timer face
+    .clock {
+        
+        span {
+            font-family: aktiv-grotesk-extended, sans-serif;
+            font-weight: 200;
+            font-style: normal;
+            font-size: 4em;
+            margin: auto;
+            padding: 0.3em;
+            color: white;
+        }
+    }
+    
+    // Start/stop and reset buttons
+    .play_buttons {
+        display: flex;
+        width: 80%;
+        margin: auto;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem;
+        
+        font-family: acumin-pro-wide, sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 0.9em;
+        
+        button {
+            border: none;
+            background-color: white;
+            padding: 0.5em;
+            border-radius: 0.5em;
+            width: 6em;
+            margin: 0em;
+            color: #426A5A;
+            cursor: pointer;
+        }
+    }
+    
+}

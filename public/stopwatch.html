@@ -1,63 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>studbud</title>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="web app for studying" />
-
-  <link href="scss/main.scss" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="https://use.typekit.net/lcj0lhj.css">
-  <!-- <link rel="icon" href="img/favicon.png"> -->
-  <script src="https://kit.fontawesome.com/c1248bbf23.js" crossorigin="anonymous"></script>
+    <title>studbud</title>
+    
+    <meta charset="utf_8">
+    <meta name="viewport" content="width=device_width,initial_scale=1"/>
+    <meta name="description" content="web app for studying"/>
+    <meta name="keywords" content="HTML, CSS, JavaScript, study, web app, pomodoro, kanban, stopwatch">
+    <meta name="author" content="Maia Tasnim">
+    
+    <link href="scss/main.scss" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://use.typekit.net/lcj0lhj.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="./media/favicon.png">
+    <script src="https://kit.fontawesome.com/c1248bbf23.js" crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>studbud.</h1>
-            <h3 id="quote">a journey of a thousand miles begins with a single step</h3>
-        </div>
+    
+    <!-- Header -->
+    <div class="header">
+        
+        <span class="web_title">studbud.</span>
+        <span class="quote">a journey of a thousand miles begins with a single step</span>
+        <button class="hamburger">
+            <div class="bar"></div>
+        </button>
     </div>
-        <h1 class="stopwatch_title">stopwatch timer</h1>
-        <div class="stopwatch">
-
+    
+    <!-- Navigation -->
+    <nav class="navigation">
+        
+        <a href="./index.html">kanban board</a>
+        <a href="./materials.html">materials and resources</a>
+        <a href="./stopwatch.html">stopwatch</a>
+        <button class="music_player_open"> open music player</button>
+        
+    </nav>
+    
+    <!-- Page title -->
+    <h1 class="stopwatch_title">stopwatch timer</h1>
+    
+    <div class="stopwatch">
+        
+        <div class="watch">
             
-            <div class="watch">
-                <div id="timeLabels">
-                    <span>h</span> <span>m</span> <span>s</span>
-                </div>
-                <div id="timer">
-                    00:00:00
-                </div>
-                <i class="fa-solid fa-stopwatch fa-10x"></i>
+            <!-- Labels for the timer -->
+            <div id="timeLabels">
+                <span>h</span> <span>m</span> <span>s</span>
             </div>
             
-            
-            <div class="controls">
-                <button id="startStop">start</button> 
-                <button id="resetButton">reset</button>
-                <button id="lapButton">lap</button>
+            <!-- Timer face -->
+            <div id="timer">
+                00:00:00
             </div>
+            
+            <!-- Background -->
+            <i class="fa-solid fa-stopwatch fa-10x"></i>
             
         </div>
-
-        <div class="lap-list">
-            <div class="lap_list_heading">
-                <h2>laps</h2>
-                <button id="clearLaps">clear</button>
-            </div>
-            <ul id="lapsList"></ul>
+        
+        <!-- Buttons to start/stop, reset and create a lap -->
+        <div class="controls">
+            
+            <button id="startStop">start</button> 
+            <button id="resetButton">reset</button>
+            <button id="lapButton">lap</button>
+            
         </div>
-
         
+    </div>
+    
+    <!-- Displays the laps created by the user -->
+    <div class="lap-list">
         
+        <div class="lap_list_heading">
+            <h2>laps</h2>
+            <button id="clearLaps">clear</button>
+        </div>
         
-
-        <div class="footer"></div>
+        <ul id="lapsList"></ul>
+        
+    </div>
     
 </body>
 
-<script src="./components/stopwatch.js"></script>
+<script type= "module" src="script.js"></script>
 </html>

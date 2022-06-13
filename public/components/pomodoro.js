@@ -1,3 +1,5 @@
+// Tutorial used : https://freshman.tech/pomodoro-timer/#prerequisites
+
 // Creating default variables for pomodoro intervals
 const timer = {
   pomodoro: 25,
@@ -163,6 +165,12 @@ document.addEventListener('DOMContentLoaded', () => {
     switchMode('pomodoro');
 });
 
+// Close pomodoro modal functionality
+const close_pomo_modal = document.querySelector('.close_pomo');
+
+close_pomo_modal.addEventListener('click', () => {
+  pomo_modal.style.display = 'none';
+})
 
 
 

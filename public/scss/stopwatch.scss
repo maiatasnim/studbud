@@ -1,11 +1,14 @@
+
+// Page title
 .stopwatch_title {
   font-family: acumin-pro-wide, sans-serif;
   font-weight: 500;
   font-style: normal;
   color: #DA8547;
-  margin: 0.5em;
+  margin: 0.5em 1em;
 }
 
+// Stopwatch div
 .stopwatch {
   display: block;
   align-items: center;
@@ -39,6 +42,8 @@
       width: 100%;
     }
   
+    // Timer face
+
     #timer {
       position: relative;
       z-index: 2;
@@ -52,6 +57,7 @@
 
   }
 
+   // Timer buttons
 
   .controls {
     display: flex;
@@ -89,10 +95,12 @@
   }
 }
 
+// Laps list 
+
 .lap-list {
   display: block;
   position: relative;
-  margin-top: -55vh;
+  margin-top: -60vh;
   width: 45vw;
   height: fit-content;
   left: 50vw;
@@ -100,15 +108,16 @@
   padding: 0.5em;
   
   .lap_list_heading {
+    
     display: flex;
-    width: 45vw;
+    width: 100%;
     height: fit-content;
     padding: 0.3em;
-    background-color: #DA8547;
     border-radius: 0.5em;
     justify-content: space-between;
     align-items: center;
-    
+    margin: 0.3em 0em;
+    background-color: #DA8547;  
 
     h2 {
       font-family: acumin-pro-wide, sans-serif;

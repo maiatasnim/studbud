@@ -1,0 +1,21 @@
+.music_player {
+    display: none;
+    width: fit-content;
+    height: fit-content;
+    padding: 0;
+    position: fixed;
+    bottom: 4;
+    right: 9;
+    border-radius: 0.5em;
+    z-index: 1;
+    
+    button {
+      border: none;
+      background-color: transparent;
+      align-self: baseline;
+      padding: 0 1em;
+      font-size: 1.3em;
+      cursor: pointer;
+    }
+  }
+  

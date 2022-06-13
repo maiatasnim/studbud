@@ -1,3 +1,5 @@
+// Tutorial used: https://www.youtube.com/watch?v=OFKBep95lb4
+
 .hamburger {
 	position: relative;
     z-index: 100;
@@ -11,17 +13,18 @@
 	border: none;
 }
 
+// styling each bar in the hamburger
 .hamburger .bar, .hamburger:after, .hamburger:before {
-	content: '';
-	display: block;
-	width: 100%;
-	height: 0.3em;
-	background-color: black;
-	margin: 6px 0px;
-	transition: 0.4s;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 0.3em;
+    background-color: black;
+    margin: 6px 0px;
+    transition: 0.4s;
     border-radius: 1em;
 }
-
+// creating the x when the menu is clicked
 .hamburger.is-active:before {
 	transform: rotate(-45deg) translate(-8px, 6px);
 }
@@ -34,17 +37,21 @@
 	opacity: 0;
 }
 
+// Navigation panel that slides out
+
 .navigation {
 	position: fixed;
 	top: 0;
 	right: -100%;
 	width: 40vw;
 	min-height: 100vh;
+
 	display: block;
 	z-index: 98;
 	background-color: #F9FFF6;
     border: solid #A8CDBE;
     border-width: 0.2em;
+    
 	padding: 6em 4em 0em 0em;
 	transition: 0.4s;
     border-radius: 1em 0em 0em 1em;

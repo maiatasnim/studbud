@@ -74,6 +74,7 @@ function playTimer() {
 
 
 // Functionality for start/stop button
+const startStop = document.getElementById('startStop');
 startStop.addEventListener("click", function startStop(){
 
     if (watchStatus === "paused") {
@@ -107,7 +108,7 @@ resetButton.addEventListener("click", function reset(){
 
 });
 
-// Function to record a lap
+// Function to record a lap, uses math to calculate the length of each lap compared to the last
 lapButton.addEventListener("click", function lap() {
 //     lapList.innerHTML += "<li>" + timer.innerHTML + "</li>";
 // });

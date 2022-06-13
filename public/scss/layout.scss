@@ -35,6 +35,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  transition: background-color 0.4s ease;
 }
 
 /* Remove list styles on ul, ol elements with a class attribute */
@@ -77,6 +78,8 @@ select {
   }
 }
 
+// Header
+
 .header {
   display: flex;
   align-items: center;
@@ -88,15 +91,33 @@ select {
     font-family: acumin-pro-wide, sans-serif;
     font-weight: 500;
     font-style: normal;
-    font-size: 2.5rem;
+    font-size: 3vw;
   }
 
   .quote {
     font-family: 'Abhaya Libre', serif;
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 2vw;
     text-align: right;
   }
+}
+
+// Start session button
+#start_sesh {
+  cursor: pointer;
+  border: none;
+  background-color: #95C6AC;
+  color: white;
+  width: 15vw;
+  height: fit-content;
+
+  font-family: acumin-pro-wide, sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.5vw;
+
+  border-radius: 0.5em;
+  padding: 0.5rem 1.5rem;
 }
 
 

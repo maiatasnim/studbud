@@ -6,109 +6,120 @@
     <meta charset="utf_8">
     <meta name="viewport" content="width=device_width,initial_scale=1"/>
     <meta name="description" content="web app for studying"/>
+    <meta name="keywords" content="HTML, CSS, JavaScript, study, web app, pomodoro, kanban, stopwatch">
+    <meta name="author" content="Maia Tasnim">
     
     <link href="scss/main.scss" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://use.typekit.net/lcj0lhj.css">
-    <!-- <link rel="icon" href="img/favicon.png"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="./media/favicon.png">
     <script src="https://kit.fontawesome.com/c1248bbf23.js" crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
     
+    <!-- Header -->
     <div class="header">
-        <h1>studbud.</h1>
-        <h3 id="quote">a journey of a thousand miles begins with a single step</h3>
-        <button type="button" id="sessionstart">start session</button>
-    </div>
 
-    <h1 class="materials_title">materials and resources</h1>
-    <div class="container">
-    <div class="materials_modal" id="add_item_form">
-        <div class="form_header">
-            <div class="form_title">add new resource</div>
-        </div>
-            <!-- Here the user inputs their resource -->
-            <div class="item_form_questions">
-                    <!-- Item name -->
-                    <label for="item_name">title</label>
-                    <input type="text" name="item_name" class="item_input" id="item_name_input" required>
-                    
-                    <!-- Author -->
-                    <label for="author">author</label>
-                    <input type="text" name="author" class="item_input" id="author_input" required>
+        <span class="web_title">studbud.</span>
+        <span class="quote">a journey of a thousand miles begins with a single step</span>
 
-                    <!-- URL -->
-                    <label for="url">where did you find it?</label>
-                    <input type="text" name="url" class="item_input" id="url_input">
-
-                    <!-- Folder -->
-                    <label for="folder_select">which folder?</label>
-                    <select name="folder_select" class="item_input" id="folder_input" required>
-                        <option value="">Select one</option>
-                    </select>
-            </div>
-
-            <button class="submit_item">add resource</button>
-    </div>
-
-    <div class="folders_list">
-        <div class="folder_list_heading">
-            <h2>folders</h2>
-            <button class="add_folder"><i class="fa-solid fa-plus"></i></button>
-        </div>
-        <ul id="foldersList"></ul>
-    </div>
-
-    <div class="new_folder_modal" id="add_folder_form">
-        <div class="form_header">
-            <div class="form_title">add new folder</div>
-            <button class="btn close-modal">&times;</button>
-        </div>
-
-        <div class="item_form_questions">
-            <!-- Item name -->
-            <label for="folder_name">name your folder</label>
-            <input type="text" name="folder_name" class="item_input" id="folder_name_input" required>
-        </div>
-
-        <button class="submit_folder">add folder</button>
-
-    </div>
-
-    <!-- <div class="folders_list">
-
-        <div class="div_header">
-            <h2>folders</h2>
-            <button class="add_folder"><i class="fa-solid fa-plus"></i></button>
-        </div> -->
-
-        <!-- <div class="folder">
-
-            <h4>folder name</h4>
-            <i class="fa-solid fa-pen"></i>
-
-            <div class="folder_items">
-
-                <div class="div_header">
-                <h3>folder name</h3>
-                <button class="add_item">add new resource</button>
-                <button class="file_upload">upload new file</button>
-                </div>
-                
-                <ul class="items_list">
-                    <li> linkylink
-                        <button class="btn close-modal">&times;</button>
-                    </li>
-                        
-                </ul>
-            </div>
-        </div> -->
+        <button class="hamburger">
+            <div class="bar"></div>
+        </button>
     </div>
     
-</div>
-<div id="overlay"></div>
-<div class="footer"></div>                
-</body>
+    <!-- Navigation -->
+    <nav class="navigation">
+
+        <a href="./index.html">kanban board</a>
+        <a href="./materials.html">materials and resources</a>
+        <a href="./stopwatch.html">stopwatch</a>
+        <button class="music_player_open"> open music player</button>
+
+    </nav>
+    
+    <!-- Page title -->
+    <h1 class="materials_title">materials and resources</h1>
+    
+    <div class="container">
+
+        <!-- Form where users can add details about a resource and add to a folder of their choice -->
+        <div class="materials_modal" id="add_item_form">
+
+            <!-- Form header -->
+            <div class="form_header">
+                <div class="form_title">add new resource</div>
+            </div>
+
+            <!-- Here the user inputs the details of their resource -->
+            <div class="item_form_questions">
+
+                <!-- Item name -->
+                <label for="item_name">title</label>
+                <input type="text" name="item_name" class="item_input" id="item_name_input" required>
+                
+                <!-- Author -->
+                <label for="author">author</label>
+                <input type="text" name="author" class="item_input" id="author_input" required>
+                
+                <!-- URL -->
+                <label for="url">where did you find it?</label>
+                <input type="text" name="url" class="item_input" id="url_input">
+                
+                <!-- Folder -->
+                <label for="folder_select">which folder?</label>
+                <select name="folder_select" class="item_input" id="folder_input" required>
+                    <option value="">Select one</option>
+                </select>
+
+            </div>
             
-<script src="./components/materials.js"></script>
+            <button class="submit_item">add resource</button>
+        </div>
+        
+        <!-- Stores folders created by user -->
+        <div class="folders_list">
+
+            <!-- Heading and add folder button -->
+            <div class="folder_list_heading">
+                <h2>folders</h2>
+                <button class="add_folder"><i class="fa-solid fa-plus"></i></button>
+            </div>
+
+            <!-- Empty list to hold items -->
+            <ul id="foldersList"></ul>
+        </div>
+        
+        <!-- User names their folder and it is added to the folders list via this form -->
+        <div class="new_folder_modal" id="add_folder_form">
+            
+            <div class="form_header">
+                <div class="form_title">add new folder</div>
+                <button class="btn close-modal">&times;</button>
+            </div>
+            
+            <div class="item_form_questions">
+                <!-- Item name -->
+                <label for="folder_name">name your folder</label>
+                <input type="text" name="folder_name" class="item_input" id="folder_name_input" required>
+            </div>
+            
+            <button class="submit_folder">add folder</button>
+            
+        </div>
+        
+        
+    </div>
+    <div id="overlay"></div>
+</div>
+
+
+
+</body>
+
+<script type= "module" src="script.js"></script>
 </html>

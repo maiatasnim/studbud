@@ -2,88 +2,267 @@
 <html lang="en">
 <head>
   <title>studbud</title>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="web app for studying" />
-
-  <link href="scss/main.scss" rel="stylesheet" type="text/css" />
+  
+  <meta charset="utf_8">
+  <meta name="viewport" content="width=device_width,initial_scale=1"/>
+  <meta name="description" content="web app for studying"/>
+  <meta name="keywords" content="HTML, CSS, JavaScript, study, web app, pomodoro, kanban, stopwatch">
+  <meta name="author" content="Maia Tasnim">
+  
+  <link href="scss/main.scss" rel="stylesheet" type="text/css"/>
   <link rel="stylesheet" href="https://use.typekit.net/lcj0lhj.css">
-  <!-- <link rel="icon" href="img/favicon.png"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="./media/favicon.png">
+  <script src="https://kit.fontawesome.com/c1248bbf23.js" crossorigin="anonymous"></script>
+  
 </head>
 
 <body>
-  <div class="grid-container">
+  <div class="container">
+    
+    <!-- Header -->
     <div class="header">
-
-      <h1>studbud.</h1>
-      <a href="stopwatch.html">stopwatch</a>
-      <a href="kanban.html">kanban</a>
-      <a href="tasklist.html">tasklist</a>
-      <a href="pomodoro.html">pomo</a>
-      <a href="materials.html">materials</a>
-      <a href="old_materials.html">old materials</a>
       
-      <h3 id="quote">a journey of a thousand miles begins with a single step</h3>
-      <button type="button" id="sessionstart">start session</button>
-
+      <span class="web_title">studbud.</span>
+      <span class="quote">a journey of a thousand miles begins with a single step</span>
+      <!-- Start session button -->
+      <button id="start_sesh">start session</button>
+      
+      <button class="hamburger">
+        <div class="bar"></div>
+      </button>
     </div>
     
-    <div class="tasklist">
+    <!-- Navigation -->
+    <nav class="navigation">
       
-      <form id="taskform">
-
-        <div id="task-grid">
-
-          <form id="taskform">
-              <label for="task">Task:</label>
-              <input type="text" name="task" id="taskInput" required>
-
-              <!-- Date input -->
-              <label for="dueDate">Due Date: </label>
-              <input type="date" name="dueDate" id="dueDateInput">
-
-              <!-- Time input -->
-              <label for="completionTime">Completion Time: </label>
-              <input type="time" name="completionTime" id="completionTimeInput">
-
-              <label for="estimatedTime">Estimated completion time (in mins):</label>
-              <input type="number" name="estimatedTime" id="estimatedTimeInput">
-              
-              <!-- Priority -->
-              <label for="priority">Task Priority:</label>
-              <select name="prority" id="priorityInput">
-                  <option value="">Select one</option>
-                  <option value="Low">Low</option>
-                  <option value="Medium">Medium</option>
-                  <option value="High">High</option>
-              </select>
-
-              <br>
-
-              <button type="submit">Submit</button>
-          </form>
+      <a href="./index.html">kanban board</a>
+      <a href="./materials.html">materials and resources</a>
+      <a href="./stopwatch.html">stopwatch</a>
+      <button class="music_player_open"> open music player</button>
+      
+    </nav>
+    
+    <!-- Pomodoro timer -->
+    <div class="pomodoro_modal">
+      
+      <div class="timer">
+        
+        <!-- Header for modal with close button -->
+        <div class="pomo_header">
+          
+          pomodoro timer
+          <button class="close_pomo"><i class="fa-solid fa-xmark"></i></button>
+          
+        </div>
+        
+        <!-- Pomodoro mode buttons -->
+        <div class="button-group mode-buttons" id="js-mode-buttons">
+          
+          <!-- Pomodoro mode -->
+          <button data-mode="pomodoro" class="button active mode-button" id="js-pomodoro">
+            pomodoro
+          </button>
+          
+          <!-- Short break mode -->
+          <button data-mode="shortBreak" class="button mode-button" id="js-short-break">
+            short break
+          </button>
+          
+          <!-- Long break mode -->
+          <button data-mode="longBreak" class="button mode-button" id="js-long-break">
+            long break
+          </button>
+          
+        </div>
+        
+        <!-- Pomodoro timer face -->
+        <div class="clock" id="js-clock">
+          
+          <span id="js-minutes">25</span>
+          <span class="separator">:</span>
+          <span id="js-seconds">00</span>
+          
+        </div>
+        
+        <!-- Pomodoro start/stop and reset buttons -->
+        <div class="play_buttons">
+          
+          <button class="main-button" data-action="start" id="js-btn">
+            start
+          </button>
+          
+          <button class="reset_button">
+            reset
+          </button>
+          
+        </div>
         
       </div>
-
-      <div id="tasklist">
-
-        <p id="emptyList">You have not added any tasks yet.</p>
-        <ul></ul>
-
-      </div>
-
     </div>
-    <div class="kanban">
+    
+    <!-- This is the form that will pop up when user clicks the new task button. The task will then be created under tasklist, 
+      and can be dragged to the priority columns for sorting. -->
+    <div class="modal" id="task_form">
+
+      <div class="form_header">
+
+        <div class="form_title">new task!</div>
+          <button class="btn close-modal"><i class="fa-solid fa-xmark"></button>
+        </div>
+          
+        <!-- Here the user inputs the details of the task. They are asked for in a colloquial manner to feel friendly. -->
+        <div class="form_questions">
+          <!-- I put the questions into two columns so they could be styled similar to the mockup -->
+          <div class="form_column">
+
+            <!-- Task name -->
+            <label for="task">what is it?</label>
+            <input type="text" name="taskName" class="task_input" id="taskNameInput" required>
+              
+            <!-- Task type -->
+            <label for="taskType">what kind of task is it?</label>
+            <select name="taskType" class="task_input" id="taskTypeInput" required>
+              <option value="">Select one</option>
+              <option value="assignment">assignment</option>
+              <option value="homework">homework</option>
+              <option value="test">test</option>
+            </select>
+              
+            <!-- Priority -->
+            <label for="priority">how urgent is it?</label>
+            <select name="priority" class="task_input" id="priorityInput" required>
+              <option value="">Select one</option>
+              <option value="low">low</option>
+              <option value="medium">medium</option>
+              <option value="high">high</option>
+            </select>
+              
+          </div>
+
+          <!-- Second form column -->
+          <div class="form_column">
+              
+            <!-- Due date -->
+            <label for="dueDate">when is it due?</label>
+            <input type="date" name="dueDate" class="task_input" id="dueDateInput" required>
+              
+            <!-- Est completion time -->
+            <label for="completionTime">how long will it take?</label>
+            <input type="number" name="completionTime" class="task_input" id="completionTimeInput" required>
+            <label for="completionTime">days</label>
+              
+          </div>
+        </div>
+          
+          <input type="submit" value="add task" id="task_submit" />
+      </div>  
+    </div> 
       
-    </div>
-    <div class="footer">
+      
+    <!-- Kanban board -->
+    
+    <!-- Button to add new column -->
+    <button class="add_column">add new column</button>
+      
+    <div class="kanban_board" id="kanban">
 
+      <!-- Container for each column header and body -->
+      <div class="column_container">
+
+        <!-- Tasklist column should not be editable or deletable, and have different styling -->
+        <div class="column_header" id="tasklist_header">
+          <div id="task_list">tasklist</div>
+        </div>
+          
+        <div class="kanban_column" id="tasklist">
+            
+          <!-- Button to add new task -->
+          <button id="btn new_task" class="new_task" data-target-modal="#task_form">+ new task</button>
+            
+        </div>
+          
+      </div>
+        
+      <div class="column_container">
+
+        <div class="column_header" id="to_start">
+
+          <div class="header_txt">to start</div>
+
+          <div class="header_buttons">
+            <button class="edit_column"><i class="fa-solid fa-pen fa-xs"></i></button>
+            <button class="delete_column"><i class="fa-solid fa-xmark"></i></button>
+              
+          </div>
+        </div>
+          
+        <div class="kanban_column" id="to_start"></div>
+          
+      </div>
+        
+      <div class="column_container">
+        
+        <div class="column_header" id="in_progress">
+
+          <div class="header_txt">in progress</div>
+
+          <div class="header_buttons">
+            <button class="edit_column"><i class="fa-solid fa-pen fa-xs"></i></button>
+            <button class="delete_column"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+          
+        <div class="kanban_column" id="in_progress"></div>
+      </div>
+        
+      <div class="column_container">
+
+        <div class="column_header">
+
+          <div class="header_txt">completed</div>
+
+          <div class="header_buttons">
+            <button class="edit_column"><i class="fa-solid fa-pen fa-xs"></i></button>
+            <button class="delete_column"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+          
+        <div class="kanban_column" id="completed"></div>
+      </div>
+        
+      <div class="column_container">
+
+        <div class="column_header">
+
+          <div class="header_txt">overdue</div>
+
+          <div class="header_buttons">
+            <button class="edit_column"><i class="fa-solid fa-pen fa-xs"></i></button>
+            <button class="delete_column"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+        </div>
+          
+        <div class="kanban_column" id="overdue"></div>
+          
+      </div>
     </div>
-  </div>  
-  
-  
+
+    <!-- Music player modal embedded from Spotify -->
+  <div class="music_player">
+    <button class="close_music"><i class="fa-solid fa-xmark"></i></button>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5Cq9nLH1wwmW4UUEVMDgw0?utm_source=generator" 
+    width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; 
+    fullscreen; picture-in-picture"></iframe>
+  </div>
+    
+    <!-- Overlay for modals -->
+  <div id="overlay"></div>
+        
 </body>
-
-<script type="module" src="script.js"></script>
+  
+<script type= "module" src="script.js"></script>
 </html>
+  
